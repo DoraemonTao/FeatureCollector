@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 this.mDir = String.valueOf(this.getFilesDir());
                 this.output_filename = this.mDir+"/"+"test1.log";
                 Log.d(TAG, "onClick: ");
+
                 try {
                     FileOutputStream out1 = new FileOutputStream(output_filename);
                 } catch (FileNotFoundException e) {
