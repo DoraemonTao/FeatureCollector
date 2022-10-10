@@ -1,17 +1,24 @@
 package com.example.myfirstapp.util;
 
 import android.util.Log;
-import android.util.Patterns;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Logger {
+
+    // Log下所有的alarm ID
+    private ArrayList<String> alarmIdList = new ArrayList<>();
+
     //最终写入文件
     private String log_path;
 
@@ -23,6 +30,7 @@ public class Logger {
     // 默认文件名
     private String default_result_log_path = "result.log";
     private String default_tmp_log_path = "tmp.log";
+
     //当前路径
     private String mDir;
 
@@ -62,7 +70,10 @@ public class Logger {
 
     // 更新最终文件
     public void updateResult() throws IOException{
+
         BufferedReader in = new BufferedReader(new FileReader(this.tmp_log_path));
+        BufferedWriter out = new BufferedWriter(new FileWriter(this.result_log_path));
+
         String line;
 
         // 匹配pending alarm的正则表达式
@@ -74,21 +85,46 @@ public class Logger {
         // 匹配alarm信息的正则表达式
         String alarmPattern = ".*[(RTC_WAKEUP)(RTC)(ELAPSED_REALTIME_WAKEUP)(ELAPSED_REALTIME)].*";
 
+        // 匹配alarm唯一标识符的正则表达式
+        String alarmIdRegex = "Alarm\\{(\\w+\\s)";
+
         boolean pendingMatch = false;
+        boolean AlarmFlag = false;
+        boolean writeFlag = false;
+
+        Pattern alarmIdPattern = Pattern.compile(alarmIdRegex);
+        Matcher alarmIdMatch;
+
+        // alarm唯一标识符
+        String alarmId;
 
         while((line = in.readLine())!= null){
+            // 匹配pending段
+            pendingMatch = Pattern.matches(pendingPattern,line);
             if(pendingMatch){
-                if(line)
-
-                // 当匹配完pending alarm的信息后，重置
-                if(Pattern.matches(lazyPattern,line)){
-                    pendingMatch = false;
+                AlarmFlag = Pattern.matches(alarmPattern,line);
+                // 匹配到新alarm时
+                if(AlarmFlag){
+                    alarmIdMatch = alarmIdPattern.matcher(line);
+                    alarmId = alarmIdMatch.group(0);
+                    // 当发现是从未发现的alarmId时
+                    if(!alarmIdList.contains(alarmId)){
+                        writeFlag = true;
+                        alarmIdList.add(alarmId);
+                    }
+                    else {
+                        writeFlag = false;
+                    }
+                }
+                if (writeFlag){
+                    out.write(line);
                 }
             }
-            else{
-                pendingMatch = Pattern.matches(pendingPattern,line);
-            }
 
+            // 当匹配完pending alarm的信息后，跳出
+            if(Pattern.matches(lazyPattern,line)){
+                break;
+            }
         }
 
     }

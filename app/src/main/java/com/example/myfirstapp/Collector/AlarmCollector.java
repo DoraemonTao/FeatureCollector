@@ -55,6 +55,7 @@ public class AlarmCollector implements DataGetter {
         public void run() {
             try {
                 AlarmCollector.this.logger.logTmp();
+                AlarmCollector.this.logger.updateResult();
             } catch (IOException e) {
                 e.printStackTrace();
             }
