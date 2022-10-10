@@ -4,4 +4,5 @@
     <string name="button_send">Send</string>
     <string name="button_start">Start</string>
     <string name="file_name">alarm.txt</string>
+    <string name="button_stop">STOP</string>
 </resources>
