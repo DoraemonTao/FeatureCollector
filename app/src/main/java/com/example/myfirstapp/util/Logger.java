@@ -105,6 +105,7 @@ public class Logger {
                 AlarmFlag = Pattern.matches(alarmPattern,line);
                 // 匹配到新alarm时
                 if(AlarmFlag){
+
                     alarmIdMatch = alarmIdPattern.matcher(line);
                     alarmId = alarmIdMatch.group(0);
                     // 当发现是从未发现的alarmId时
