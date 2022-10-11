@@ -40,6 +40,9 @@ public class Logger {
         this.mDir = dir;
         this.tmp_log_path = this.mDir+"/"+this.default_tmp_log_path;
         this.result_log_path = this.mDir+ "/" + this.default_result_log_path;
+
+        // TODO：若存在result文件，则删除，防止在上一次的基础上继续生成
+
     }
 
     // 导出log文件
@@ -72,7 +75,7 @@ public class Logger {
     public void updateResult() throws IOException{
 
         BufferedReader in = new BufferedReader(new FileReader(this.tmp_log_path));
-        BufferedWriter out = new BufferedWriter(new FileWriter(this.result_log_path));
+        BufferedWriter out = new BufferedWriter(new FileWriter(this.result_log_path,true));
 
         String line;
 
@@ -86,7 +89,7 @@ public class Logger {
         String alarmPattern = ".*[(RTC_WAKEUP)(RTC)(ELAPSED_REALTIME_WAKEUP)(ELAPSED_REALTIME)].*";
 
         // 匹配alarm唯一标识符的正则表达式
-        String alarmIdRegex = "Alarm\\{(\\w+\\s)";
+        String alarmIdRegex = "Alarm\\{(\\w+)\\s";
 
         boolean pendingMatch = false;
         boolean AlarmFlag = false;
@@ -100,25 +103,30 @@ public class Logger {
 
         while((line = in.readLine())!= null){
             // 匹配pending段
-            pendingMatch = Pattern.matches(pendingPattern,line);
+            if(!pendingMatch)
+                pendingMatch = Pattern.matches(pendingPattern,line);
             if(pendingMatch){
                 AlarmFlag = Pattern.matches(alarmPattern,line);
                 // 匹配到新alarm时
                 if(AlarmFlag){
-
                     alarmIdMatch = alarmIdPattern.matcher(line);
-                    alarmId = alarmIdMatch.group(0);
-                    // 当发现是从未发现的alarmId时
-                    if(!alarmIdList.contains(alarmId)){
-                        writeFlag = true;
-                        alarmIdList.add(alarmId);
-                    }
-                    else {
-                        writeFlag = false;
+                    if(alarmIdMatch.find())
+                    {
+                        alarmId = alarmIdMatch.group(1);
+                        // 当发现是从未发现的alarmId时
+                        if(!alarmIdList.contains(alarmId)) {
+                            writeFlag = true;
+                            alarmIdList.add(alarmId);
+                        }
+                        else {
+                            writeFlag = false;
+                        }
                     }
                 }
                 if (writeFlag){
                     out.write(line);
+                    out.newLine();
+                    out.flush();
                 }
             }
 
@@ -127,6 +135,8 @@ public class Logger {
                 break;
             }
         }
+
+        out.close();
 
     }
 }
