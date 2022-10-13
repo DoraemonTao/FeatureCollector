@@ -1,6 +1,6 @@
 package com.example.myfirstapp.Collector;
 
-public interface DataGetter {
+public interface DataCollector {
     void start();
     void stop();
 }

@@ -9,9 +9,9 @@ import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class AlarmCollector implements DataGetter {
+public class CollectorManager implements DataCollector {
 
-    private static String TAG = AlarmCollector.class.getSimpleName();
+    private static String TAG = CollectorManager.class.getSimpleName();
 
     // 刷新间隔，暂定为1s
     private static final long DEFAULT_REFRESH_INTERVAL = 1000;
@@ -26,7 +26,7 @@ public class AlarmCollector implements DataGetter {
 
 
 
-    public AlarmCollector(Context context,String dir){
+    public CollectorManager(Context context,String dir){
         this.refresh_interval = DEFAULT_REFRESH_INTERVAL;
         this.logger = new Logger(String.valueOf(dir));
 
@@ -54,8 +54,8 @@ public class AlarmCollector implements DataGetter {
         @Override
         public void run() {
             try {
-                AlarmCollector.this.logger.logTmp();
-                AlarmCollector.this.logger.updateResult();
+                CollectorManager.this.logger.logTmp();
+                CollectorManager.this.logger.updateResult();
             } catch (IOException e) {
                 e.printStackTrace();
             }
