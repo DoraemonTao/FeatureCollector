@@ -1,0 +1,2813 @@
+Settings:
+  min_ready_non_active_jobs_count=5 
+  max_non_active_job_batch_delay_ms=1860000 
+  heavy_use_factor=0.9 
+  moderate_use_factor=0.5 
+  min_linear_backoff_time_ms=10000 
+  min_exp_backoff_time_ms=10000 
+  conn_congestion_delay_frac=0.5 
+  conn_prefetch_relax_frac=0.5 
+  enable_api_quotas=true 
+  aq_schedule_count=250 
+  aq_schedule_window_ms=60000 
+  aq_schedule_throw_exception=true 
+  aq_schedule_return_failure=false 
+  runtime_min_guarantee_ms=600000 
+  runtime_min_ej_guarantee_ms=180000 
+  runtime_free_quota_max_limit_ms=1800000 
+  
+  QuotaController:
+    qc_allowed_time_per_period_ms=600000 
+    qc_in_quota_buffer_ms=30000 
+    qc_window_size_active_ms=600000 
+    qc_window_size_working_ms=7200000 
+    qc_window_size_frequent_ms=28800000 
+    qc_window_size_rare_ms=86400000 
+    qc_window_size_restricted_ms=86400000 
+    qc_max_execution_time_ms=14400000 
+    qc_max_job_count_active=75 
+    qc_max_job_count_working=120 
+    qc_max_job_count_frequent=200 
+    qc_max_job_count_rare=48 
+    qc_max_job_count_restricted=10 
+    qc_rate_limiting_window_ms=60000 
+    qc_max_job_count_per_rate_limiting_window=20 
+    qc_max_session_count_active=75 
+    qc_max_session_count_working=10 
+    qc_max_session_count_frequent=8 
+    qc_max_session_count_rare=3 
+    qc_max_session_count_restricted=1 
+    qc_max_session_count_per_rate_limiting_window=20 
+    qc_timing_session_coalescing_duration_ms=5000 
+    qc_min_quota_check_delay_ms=60000 
+    qc_ej_limit_active_ms=1800000 
+    qc_ej_limit_working_ms=1800000 
+    qc_ej_limit_frequent_ms=600000 
+    qc_ej_limit_rare_ms=600000 
+    qc_ej_limit_restricted_ms=300000 
+    qc_ej_limit_addition_installer_ms=1800000 
+    qc_ej_limit_addition_special_ms=900000 
+    qc_ej_window_size_ms=86400000 
+    qc_ej_top_app_time_chunk_size_ms=30000 
+    qc_ej_reward_top_app_ms=10000 
+    qc_ej_reward_interaction_ms=15000 
+    qc_ej_reward_notification_seen_ms=0 
+    qc_ej_grace_period_temp_allowlist_ms=180000 
+    qc_ej_grace_period_top_app_ms=60000 
+
+In thermal throttling?: false
+
+QuotaTracker:
+  Is enabled: true
+  Is global quota free: false
+  Current elapsed time: 876352690
+  
+  
+  In quota alarms:
+    NOT WAITING
+  
+  Per-app free quota:
+
+Started users: [0]
+Registered 29 jobs:
+  JOB #1000/1: cada5f1 com.android.providers.settings/.WriteFallbackSettingsFilesJobService
+    1000 tag=*job*/com.android.providers.settings/.WriteFallbackSettingsFilesJobService
+    Source: uid=1000 user=0 pkg=com.android.providers.settings
+    JobInfo:
+      Service: com.android.providers.settings/.WriteFallbackSettingsFilesJobService
+      PERIODIC: interval=+1d0h0m0s0ms flex=+1d0h0m0s0ms
+      PERSISTED
+      Requires: charging=true batteryNotLow=false deviceIdle=false
+      Extras: {config=/data/system/users/0/settings_config.xml, global=/data/system/users/0/settings_global.xml, secure=/data/system/users/0/settings_secure.xml, system=/data/system/users/0/settings_system.xml, ssaid=/data/system/users/0/settings_ssaid.xml}
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: CHARGING TIMING_DELAY DEADLINE [0xc0000001]
+    Dynamic constraints:
+    Satisfied constraints: CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE [0xc0000000]
+    Constraint history:
+      -25m12s570ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -20m17s610ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -19m46s443ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -18m56s860ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -18m52s282ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -17m13s935ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -15m14s331ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -15m6s425ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -9m57s213ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -5m56s145ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Uid: active
+    Tracking: BATTERY TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -3h25m35s995ms
+    Run time: earliest=+20h34m17s631ms, latest=+1d20h34m17s631ms, original latest=+1d20h34m17s631ms
+    Last successful run: 2022-07-18 18:32:36
+    Last failed run: 2022-08-10 16:06:45
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #1000/800: d9b5c7c android/com.android.server.pm.BackgroundDexOptService
+    1000 tag=*job*/android/com.android.server.pm.BackgroundDexOptService
+    Source: uid=1000 user=0 pkg=android
+    JobInfo:
+      Service: android/com.android.server.pm.BackgroundDexOptService
+      PERIODIC: interval=+1d0h0m0s0ms flex=+1d0h0m0s0ms
+      Requires: charging=true batteryNotLow=false deviceIdle=true
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: CHARGING TIMING_DELAY DEADLINE IDLE [0xc0000005]
+    Dynamic constraints:
+    Satisfied constraints: CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE IDLE [0xc0000004]
+    Constraint history:
+      -25m12s570ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -20m17s610ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -19m46s443ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -18m56s860ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -18m52s282ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -17m13s935ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -15m14s331ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -15m6s425ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -9m57s213ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -5m56s145ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Uid: active
+    Tracking: BATTERY IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -3h15m23s34ms
+    Run time: earliest=+20h34m17s675ms, latest=+1d20h34m17s675ms, original latest=+1d20h34m17s675ms
+    Last successful run: 2022-07-18 18:42:49
+    Last failed run: 2022-07-15 21:41:55
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #1000/808: 7bfe53c android/com.android.server.MountServiceIdler
+    1000 tag=*job*/android/com.android.server.MountServiceIdler
+    Source: uid=1000 user=0 pkg=android
+    JobInfo:
+      Service: android/com.android.server.MountServiceIdler
+      Requires: charging=true batteryNotLow=true deviceIdle=true
+      Minimum latency: +8h16m41s757ms
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+    Required constraints: CHARGING BATTERY_NOT_LOW TIMING_DELAY IDLE [0x80000007]
+    Dynamic constraints:
+    Satisfied constraints: CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Unsatisfied constraints: TIMING_DELAY IDLE [0x80000004]
+    Constraint history:
+      -25m12s570ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -20m17s610ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -19m46s443ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -18m56s860ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -18m52s282ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -17m13s935ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -15m14s331ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -15m6s425ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -9m57s213ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -5m56s145ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Uid: active
+    Tracking: BATTERY IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -3h14m54s672ms
+    Run time: earliest=+5h1m47s84ms, latest=none, original latest=none
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #1000/812: cb610ab android/com.android.server.ZramWriteback
+    1000 tag=*job*/android/com.android.server.ZramWriteback
+    Source: uid=1000 user=0 pkg=android
+    JobInfo:
+      Service: android/com.android.server.ZramWriteback
+      Requires: charging=false batteryNotLow=false deviceIdle=true
+      Minimum latency: +1d0h0m0s0ms
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+    Required constraints: TIMING_DELAY IDLE [0x80000004]
+    Dynamic constraints:
+    Satisfied constraints: DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+    Unsatisfied constraints: TIMING_DELAY IDLE [0x80000004]
+    Constraint history:
+      -1h32m16s157ms = IDLE [0x4]
+      -1h32m16s157ms = IDLE BACKGROUND_NOT_RESTRICTED [0x400004]
+      -1h32m16s157ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400004]
+      -1h32m16s157ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+      -1h12m24s180ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+      -36m15s663ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+      -34m46s229ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+    Uid: active
+    Tracking: IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -1h32m16s157ms
+    Run time: earliest=+22h27m43s842ms, latest=none, original latest=none
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #1000/100001: e8500f0 com.xunmeng.pinduoduo.lifecycle_ii/com.xunmeng.pinduoduo.account_type/拼多多:android
+    1000 tag=*job*/com.xunmeng.pinduoduo.lifecycle_ii/com.xunmeng.pinduoduo.account_type/拼多多:android
+    Source: uid=u0a106 user=0 pkg=com.xunmeng.pinduoduo
+    JobInfo:
+      Service: android/com.android.server.content.SyncJobService
+      PERIODIC: interval=+1d0h0m0s0ms flex=+1h12m0s0ms
+      PERSISTED
+      Requires: charging=false batteryNotLow=false deviceIdle=false
+      Extras: {provider=com.xunmeng.pinduoduo.lifecycle_ii, ejDowngradedToRegular=false, reason=-4, source=4, userId=0, expectedRuntime=0, syncExemptionFlag=0, owningPackage=com.xunmeng.pinduoduo, SyncManagerJob=true, isPeriodic=true, allowParallelSyncs=false, periodMillis=86400000, sourcePeriodicId=-1, jobId=100001, owningUid=10106, flexMillis=3456000, accountName=拼多多, accountType=com.xunmeng.pinduoduo.account_type, retries=0, syncExtras=PersistableBundle[{}]}
+      Network type: NetworkRequest [ NONE id=0, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&VALIDATED&NOT_VCN_MANAGED Uid: 10106] ]
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: STORAGE_NOT_LOW TIMING_DELAY DEADLINE CONNECTIVITY [0xd0000008]
+    Dynamic constraints:
+    Satisfied constraints: STORAGE_NOT_LOW TIMING_DELAY DEADLINE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0xc3400008]
+    Unsatisfied constraints: CONNECTIVITY [0x10000000]
+    Constraint history:
+      -3d3h15m10s82ms = CONNECTIVITY [0x10000000]
+      -3d3h15m10s81ms = STORAGE_NOT_LOW CONNECTIVITY [0x10000008]
+      -3d3h15m10s81ms = STORAGE_NOT_LOW CONNECTIVITY BACKGROUND_NOT_RESTRICTED [0x10400008]
+      -3d3h15m10s81ms = STORAGE_NOT_LOW CONNECTIVITY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x12400008]
+      -3d3h15m10s81ms = STORAGE_NOT_LOW CONNECTIVITY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x13400008]
+      -3d2h32m44s952ms = STORAGE_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400008]
+      -2d4h19m32s918ms = STORAGE_NOT_LOW TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400008]
+      -2d3h11m35s6ms = STORAGE_NOT_LOW TIMING_DELAY DEADLINE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0xc3400008]
+    Tracking: CONNECTIVITY STORAGE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -3d3h15m10s82ms
+    Run time: earliest=-2d4h27m10s82ms, latest=-2d3h15m10s82ms, original latest=-2d3h15m10s82ms
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #1000/100324: 352b92b com.xunmeng.pinduoduo.tide_content_auth/com.xunmeng.pinduoduo.tide_account_type/拼多多-同步:android
+    1000 tag=*job*/com.xunmeng.pinduoduo.tide_content_auth/com.xunmeng.pinduoduo.tide_account_type/拼多多-同步:android
+    Source: uid=u0a106 user=0 pkg=com.xunmeng.pinduoduo
+    JobInfo:
+      Service: android/com.android.server.content.SyncJobService
+      PERSISTED
+      Requires: charging=false batteryNotLow=false deviceIdle=false
+      Extras: {provider=com.xunmeng.pinduoduo.tide_content_auth, ejDowngradedToRegular=true, reason=10106, source=3, userId=0, expectedRuntime=751500943, syncExemptionFlag=0, owningPackage=com.xunmeng.pinduoduo, SyncManagerJob=true, isPeriodic=false, allowParallelSyncs=false, periodMillis=0, sourcePeriodicId=-1, jobId=100324, owningUid=10106, flexMillis=0, accountName=拼多多-同步, accountType=com.xunmeng.pinduoduo.tide_account_type, retries=1, syncExtras=PersistableBundle[{ignore_settings=true, force=true}]}
+      Network type: NetworkRequest [ NONE id=0, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&VALIDATED&NOT_VCN_MANAGED Uid: 10106] ]
+      Backoff: policy=1 initial=+30s0ms
+    Required constraints: STORAGE_NOT_LOW CONNECTIVITY [0x10000008]
+    Dynamic constraints:
+    Satisfied constraints: STORAGE_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400008]
+    Unsatisfied constraints: CONNECTIVITY [0x10000000]
+    Constraint history:
+      -1d10h40m51s738ms = STORAGE_NOT_LOW [0x8]
+      -1d10h40m51s738ms = STORAGE_NOT_LOW BACKGROUND_NOT_RESTRICTED [0x400008]
+      -1d10h40m51s738ms = STORAGE_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400008]
+      -1d10h40m51s738ms = STORAGE_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400008]
+    Tracking: CONNECTIVITY STORAGE QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -1d10h40m51s738ms
+    Run time: earliest=none, latest=none, original latest=none
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #1000/765123: 212c752 android/com.android.server.PruneInstantAppsJobService
+    1000 tag=*job*/android/com.android.server.PruneInstantAppsJobService
+    Source: uid=1000 user=0 pkg=android
+    JobInfo:
+      Service: android/com.android.server.PruneInstantAppsJobService
+      PERIODIC: interval=+1d0h0m0s0ms flex=+1d0h0m0s0ms
+      Requires: charging=false batteryNotLow=false deviceIdle=true
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: TIMING_DELAY DEADLINE IDLE [0xc0000004]
+    Dynamic constraints:
+    Satisfied constraints: DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE IDLE [0xc0000004]
+    Constraint history:
+      -3h17m44s460ms = IDLE [0x4]
+      -3h17m44s460ms = IDLE BACKGROUND_NOT_RESTRICTED [0x400004]
+      -3h17m44s460ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400004]
+      -3h17m44s460ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+      -3h13m58s233ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+      -2h34m31s559ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+      -1h12m24s180ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+      -36m15s663ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+      -34m46s229ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+    Uid: active
+    Tracking: IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -3h17m44s460ms
+    Run time: earliest=+20h34m17s676ms, latest=+1d20h34m17s676ms, original latest=+1d20h34m17s676ms
+    Last successful run: 2022-07-18 18:40:28
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #1000/882313: 81482fb android/com.android.server.net.watchlist.ReportWatchlistJobService
+    1000 tag=*job*/android/com.android.server.net.watchlist.ReportWatchlistJobService
+    Source: uid=1000 user=0 pkg=android
+    JobInfo:
+      Service: android/com.android.server.net.watchlist.ReportWatchlistJobService
+      PERIODIC: interval=+12h0m0s0ms flex=+12h0m0s0ms
+      Requires: charging=false batteryNotLow=true deviceIdle=true
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: BATTERY_NOT_LOW TIMING_DELAY DEADLINE IDLE [0xc0000006]
+    Dynamic constraints:
+    Satisfied constraints: CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE IDLE [0xc0000004]
+    Constraint history:
+      -25m12s570ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -20m17s610ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -19m46s443ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -18m56s860ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -18m52s282ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -17m13s935ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -15m14s331ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -15m6s425ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -9m57s213ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -5m56s145ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Uid: active
+    Tracking: BATTERY IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -3h17m44s813ms
+    Run time: earliest=+8h34m18s105ms, latest=+20h34m18s105ms, original latest=+20h34m18s105ms
+    Last successful run: 2022-07-18 18:40:28
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #1000/2030028: e759da1 android/com.android.server.pm.DynamicCodeLoggingService
+    1000 tag=*job*/android/com.android.server.pm.DynamicCodeLoggingService
+    Source: uid=1000 user=0 pkg=android
+    JobInfo:
+      Service: android/com.android.server.pm.DynamicCodeLoggingService
+      PERIODIC: interval=+1d0h0m0s0ms flex=+1d0h0m0s0ms
+      Requires: charging=true batteryNotLow=false deviceIdle=true
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: CHARGING TIMING_DELAY DEADLINE IDLE [0xc0000005]
+    Dynamic constraints:
+    Satisfied constraints: CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE IDLE [0xc0000004]
+    Constraint history:
+      -25m12s570ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -20m17s610ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -19m46s443ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -18m56s860ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -18m52s282ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -17m13s935ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -15m14s331ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -15m6s425ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -9m57s213ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -5m56s145ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Uid: active
+    Tracking: BATTERY IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -3h15m34s650ms
+    Run time: earliest=+20h34m17s675ms, latest=+1d20h34m17s675ms, original latest=+1d20h34m17s675ms
+    Last successful run: 2022-07-18 18:42:38
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #1000/3923512: 92f0206 android/com.android.server.display.BrightnessIdleJob
+    1000 tag=*job*/android/com.android.server.display.BrightnessIdleJob
+    Source: uid=1000 user=0 pkg=android
+    JobInfo:
+      Service: android/com.android.server.display.BrightnessIdleJob
+      PERIODIC: interval=+1d0h0m0s0ms flex=+1d0h0m0s0ms
+      Requires: charging=true batteryNotLow=false deviceIdle=true
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: CHARGING TIMING_DELAY DEADLINE IDLE [0xc0000005]
+    Dynamic constraints:
+    Satisfied constraints: CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE IDLE [0xc0000004]
+    Constraint history:
+      -25m12s570ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -20m17s610ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -19m46s443ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -18m56s860ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -18m52s282ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -17m13s935ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -15m14s331ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -15m6s425ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -9m57s213ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -5m56s145ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Uid: active
+    Tracking: BATTERY IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -3h17m44s804ms
+    Run time: earliest=+20h34m17s828ms, latest=+1d20h34m17s828ms, original latest=+1d20h34m17s828ms
+    Last successful run: 2022-07-18 18:40:28
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #1000/13254266: 596b8cd android/com.android.server.camera.CameraStatsJobService
+    1000 tag=*job*/android/com.android.server.camera.CameraStatsJobService
+    Source: uid=1000 user=0 pkg=android
+    JobInfo:
+      Service: android/com.android.server.camera.CameraStatsJobService
+      Requires: charging=false batteryNotLow=false deviceIdle=true
+      Minimum latency: +1d0h0m0s0ms
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+    Required constraints: TIMING_DELAY IDLE [0x80000004]
+    Dynamic constraints:
+    Satisfied constraints: DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+    Unsatisfied constraints: TIMING_DELAY IDLE [0x80000004]
+    Constraint history:
+      -1h32m21s565ms = IDLE [0x4]
+      -1h32m21s565ms = IDLE BACKGROUND_NOT_RESTRICTED [0x400004]
+      -1h32m21s565ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400004]
+      -1h32m21s565ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+      -1h12m24s180ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+      -36m15s663ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+      -34m46s229ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+    Uid: active
+    Tracking: IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -1h32m21s565ms
+    Run time: earliest=+22h27m38s435ms, latest=none, original latest=none
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #1000/52417896: 6d83d83 android/com.android.server.backup.KeyValueBackupJob
+    1000 tag=*job*/android/com.android.server.backup.KeyValueBackupJob
+    Source: uid=1000 user=0 pkg=android
+    JobInfo:
+      Service: android/com.android.server.backup.KeyValueBackupJob
+      Requires: charging=true batteryNotLow=false deviceIdle=false
+      Transient extras: {userId=0}
+      Network type: NetworkRequest [ NONE id=0, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&VALIDATED&NOT_VCN_MANAGED Uid: 1000] ]
+      Minimum latency: +4h5m32s719ms
+      Max execution delay: +1d0h0m0s0ms
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: CHARGING TIMING_DELAY DEADLINE CONNECTIVITY [0xd0000001]
+    Dynamic constraints:
+    Satisfied constraints: CHARGING BATTERY_NOT_LOW TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400003]
+    Unsatisfied constraints: DEADLINE CONNECTIVITY [0x50000000]
+    Constraint history:
+      -25m12s570ms = BATTERY_NOT_LOW TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400002]
+      -20m17s610ms = CHARGING BATTERY_NOT_LOW TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400003]
+      -19m46s443ms = BATTERY_NOT_LOW TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400002]
+      -18m56s860ms = CHARGING BATTERY_NOT_LOW TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400003]
+      -18m52s282ms = BATTERY_NOT_LOW TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400002]
+      -17m13s935ms = CHARGING BATTERY_NOT_LOW TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400003]
+      -15m14s331ms = BATTERY_NOT_LOW TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400002]
+      -15m6s425ms = CHARGING BATTERY_NOT_LOW TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400003]
+      -9m57s213ms = BATTERY_NOT_LOW TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400002]
+      -5m56s145ms = CHARGING BATTERY_NOT_LOW TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400003]
+    Uid: active
+    Tracking: BATTERY CONNECTIVITY TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyDeadlineSatisfied: false
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -20h46m32s709ms
+    Run time: earliest=-16h40m59s990ms, latest=+3h13m27s291ms, original latest=+3h13m27s291ms
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #1000/191934935: 8761e49 android/com.android.server.blob.BlobStoreIdleJobService
+    1000 tag=*job*/android/com.android.server.blob.BlobStoreIdleJobService
+    Source: uid=1000 user=0 pkg=android
+    JobInfo:
+      Service: android/com.android.server.blob.BlobStoreIdleJobService
+      PERIODIC: interval=+1d0h0m0s0ms flex=+1d0h0m0s0ms
+      Requires: charging=true batteryNotLow=false deviceIdle=true
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: CHARGING TIMING_DELAY DEADLINE IDLE [0xc0000005]
+    Dynamic constraints:
+    Satisfied constraints: CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE IDLE [0xc0000004]
+    Constraint history:
+      -25m12s570ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -20m17s610ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -19m46s443ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -18m56s860ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -18m52s282ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -17m13s935ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -15m14s331ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -15m6s425ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -9m57s213ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -5m56s145ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Uid: active
+    Tracking: BATTERY IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -3h17m44s207ms
+    Run time: earliest=+20h34m20s89ms, latest=+1d20h34m20s89ms, original latest=+1d20h34m20s89ms
+    Last successful run: 2022-07-18 18:40:28
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #1000/203142925: c954859 android/com.android.server.pm.DynamicCodeLoggingService
+    1000 tag=*job*/android/com.android.server.pm.DynamicCodeLoggingService
+    Source: uid=1000 user=0 pkg=android
+    JobInfo:
+      Service: android/com.android.server.pm.DynamicCodeLoggingService
+      PERIODIC: interval=+2h0m0s0ms flex=+2h0m0s0ms
+      Requires: charging=false batteryNotLow=true deviceIdle=true
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: BATTERY_NOT_LOW TIMING_DELAY DEADLINE IDLE [0xc0000006]
+    Dynamic constraints:
+    Satisfied constraints: CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE IDLE [0xc0000004]
+    Constraint history:
+      -25m12s570ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -20m17s610ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -19m46s443ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -18m56s860ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -18m52s282ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -17m13s935ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -15m14s331ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -15m6s425ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -9m57s213ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -5m56s145ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Uid: active
+    Tracking: BATTERY IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -1h21m27s637ms
+    Run time: earliest=+34m17s676ms, latest=+2h34m17s676ms, original latest=+2h34m17s676ms
+    Last successful run: 2022-07-18 20:36:45
+    Last failed run: 2022-07-16 12:40:05
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #1000/204561367: 9c66f18 android/com.android.server.people.data.DataMaintenanceService
+    1000 tag=*job*/android/com.android.server.people.data.DataMaintenanceService
+    Source: uid=1000 user=0 pkg=android
+    JobInfo:
+      Service: android/com.android.server.people.data.DataMaintenanceService
+      PERIODIC: interval=+1d0h0m0s0ms flex=+1d0h0m0s0ms
+      Requires: charging=false batteryNotLow=false deviceIdle=true
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: TIMING_DELAY DEADLINE IDLE [0xc0000004]
+    Dynamic constraints:
+    Satisfied constraints: DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE IDLE [0xc0000004]
+    Constraint history:
+      -3h17m44s812ms = IDLE [0x4]
+      -3h17m44s812ms = IDLE BACKGROUND_NOT_RESTRICTED [0x400004]
+      -3h17m44s812ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400004]
+      -3h17m44s812ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+      -3h13m58s233ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+      -2h34m31s559ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+      -1h12m24s180ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+      -36m15s663ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+      -34m46s229ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+    Uid: active
+    Tracking: IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -3h17m44s812ms
+    Run time: earliest=+20h34m20s530ms, latest=+1d20h34m20s530ms, original latest=+1d20h34m20s530ms
+    Last successful run: 2022-07-18 18:40:28
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #1000/1145656139: 437a902 android/com.android.server.storage.DiskStatsLoggingService
+    1000 tag=*job*/android/com.android.server.storage.DiskStatsLoggingService
+    Source: uid=1000 user=0 pkg=android
+    JobInfo:
+      Service: android/com.android.server.storage.DiskStatsLoggingService
+      PERIODIC: interval=+1d0h0m0s0ms flex=+1d0h0m0s0ms
+      Requires: charging=true batteryNotLow=false deviceIdle=true
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: CHARGING TIMING_DELAY DEADLINE IDLE [0xc0000005]
+    Dynamic constraints:
+    Satisfied constraints: CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE IDLE [0xc0000004]
+    Constraint history:
+      -25m12s570ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -20m17s610ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -19m46s443ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -18m56s860ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -18m52s282ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -17m13s935ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -15m14s331ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -15m6s425ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -9m57s213ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -5m56s145ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Uid: active
+    Tracking: BATTERY IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -3h17m44s209ms
+    Run time: earliest=+20h34m17s651ms, latest=+1d20h34m17s651ms, original latest=+1d20h34m17s651ms
+    Last successful run: 2022-07-18 18:40:28
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #1000/2131427341: 7aafe1d com.android.settings/.fuelgauge.batterytip.AnomalyCleanupJobService
+    1000 tag=*job*/com.android.settings/.fuelgauge.batterytip.AnomalyCleanupJobService
+    Source: uid=1000 user=0 pkg=com.android.settings
+    JobInfo:
+      Service: com.android.settings/.fuelgauge.batterytip.AnomalyCleanupJobService
+      PERIODIC: interval=+1d0h0m0s0ms flex=+1d0h0m0s0ms
+      PERSISTED
+      Requires: charging=true batteryNotLow=false deviceIdle=true
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: CHARGING TIMING_DELAY DEADLINE IDLE [0xc0000005]
+    Dynamic constraints:
+    Satisfied constraints: CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE IDLE [0xc0000004]
+    Constraint history:
+      -25m12s570ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -20m17s610ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -19m46s443ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -18m56s860ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -18m52s282ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -17m13s935ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -15m14s331ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -15m6s425ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -9m57s213ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -5m56s145ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Uid: active
+    Tracking: BATTERY IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -3h17m44s793ms
+    Run time: earliest=+20h34m17s633ms, latest=+1d20h34m17s633ms, original latest=+1d20h34m17s633ms
+    Last successful run: 2022-07-18 18:40:28
+    Last failed run: 2022-08-10 16:06:45
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #1000/2131427342: 4a93892 com.android.settings/.fuelgauge.batterytip.AnomalyConfigJobService
+    1000 tag=*job*/com.android.settings/.fuelgauge.batterytip.AnomalyConfigJobService
+    Source: uid=1000 user=0 pkg=com.android.settings
+    JobInfo:
+      Service: com.android.settings/.fuelgauge.batterytip.AnomalyConfigJobService
+      PERIODIC: interval=+1d0h0m0s0ms flex=+1d0h0m0s0ms
+      PERSISTED
+      Requires: charging=true batteryNotLow=false deviceIdle=true
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: CHARGING TIMING_DELAY DEADLINE IDLE [0xc0000005]
+    Dynamic constraints:
+    Satisfied constraints: CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE IDLE [0xc0000004]
+    Constraint history:
+      -25m12s570ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -20m17s610ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -19m46s443ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -18m56s860ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -18m52s282ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -17m13s935ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -15m14s331ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -15m6s425ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -9m57s213ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -5m56s145ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Uid: active
+    Tracking: BATTERY IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -3h17m44s790ms
+    Run time: earliest=+20h34m17s634ms, latest=+1d20h34m17s634ms, original latest=+1d20h34m17s634ms
+    Last successful run: 2022-07-18 18:40:28
+    Last failed run: 2022-08-10 16:06:45
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #1073/3345678: 32786f4 com.android.networkstack/com.android.server.connectivity.ipmemorystore.RegularMaintenanceJobService
+    1073 tag=*job*/com.android.networkstack/com.android.server.connectivity.ipmemorystore.RegularMaintenanceJobService
+    Source: uid=1073 user=0 pkg=com.android.networkstack
+    JobInfo:
+      Service: com.android.networkstack/com.android.server.connectivity.ipmemorystore.RegularMaintenanceJobService
+      PERIODIC: interval=+1d0h0m0s0ms flex=+1d0h0m0s0ms
+      Requires: charging=true batteryNotLow=true deviceIdle=true
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: CHARGING BATTERY_NOT_LOW TIMING_DELAY DEADLINE IDLE [0xc0000007]
+    Dynamic constraints:
+    Satisfied constraints: CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE IDLE [0xc0000004]
+    Constraint history:
+      -25m12s570ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -20m17s610ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -19m46s443ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -18m56s860ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -18m52s282ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -17m13s935ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -15m14s331ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -15m6s425ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -9m57s213ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -5m56s145ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Uid: active
+    Tracking: BATTERY IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -3h17m44s801ms
+    Run time: earliest=+20h34m18s762ms, latest=+1d20h34m18s762ms, original latest=+1d20h34m18s762ms
+    Last successful run: 2022-07-18 18:40:28
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #u0a28/-100: 275978 com.android.providers.downloads/.DownloadIdleService
+    u0a28 tag=*job*/com.android.providers.downloads/.DownloadIdleService
+    Source: uid=u0a28 user=0 pkg=com.android.providers.downloads
+    JobInfo:
+      Service: com.android.providers.downloads/.DownloadIdleService
+      PERIODIC: interval=+12h0m0s0ms flex=+12h0m0s0ms
+      Requires: charging=true batteryNotLow=false deviceIdle=true
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: CHARGING TIMING_DELAY DEADLINE IDLE [0xc0000005]
+    Dynamic constraints:
+    Satisfied constraints: CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE IDLE [0xc0000004]
+    Constraint history:
+      -25m12s570ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -20m17s610ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -19m46s443ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -18m56s860ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -18m52s282ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -17m13s935ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -15m14s331ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -15m6s425ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -9m57s213ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -5m56s145ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Tracking: BATTERY IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -3h17m44s758ms
+    Run time: earliest=+8h34m26s899ms, latest=+20h34m26s899ms, original latest=+20h34m26s899ms
+    Last successful run: 2022-07-18 18:40:28
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #u0a40/4: bc65eac com.android.statementservice/androidx.work.impl.background.systemjob.SystemJobService
+    u0a40 tag=*job*/com.android.statementservice/androidx.work.impl.background.systemjob.SystemJobService
+    Source: uid=u0a40 user=0 pkg=com.android.statementservice
+    JobInfo:
+      Service: com.android.statementservice/androidx.work.impl.background.systemjob.SystemJobService
+      Requires: charging=false batteryNotLow=false deviceIdle=true
+      Extras: mParcelledData.dataSize=180
+      Minimum latency: +86d3h12m38s170ms
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+    Required constraints: TIMING_DELAY IDLE [0x80000004]
+    Dynamic constraints:
+    Satisfied constraints: DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+    Unsatisfied constraints: TIMING_DELAY IDLE [0x80000004]
+    Constraint history:
+      -1d8h33m3s183ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+      -1d3h15m55s407ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+      -1d1h59m43s340ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+      -5h0m26s399ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+      -3h17m44s889ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+      -3h13m58s233ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+      -2h34m31s559ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+      -1h12m24s180ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+      -36m15s663ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+      -34m46s229ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+    Tracking: IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -7d5h42m8s405ms
+    Run time: earliest=+78d21h30m29s765ms, latest=none, original latest=none
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #u0a40/21: 956e775 com.android.statementservice/androidx.work.impl.background.systemjob.SystemJobService
+    u0a40 tag=*job*/com.android.statementservice/androidx.work.impl.background.systemjob.SystemJobService
+    Source: uid=u0a40 user=0 pkg=com.android.statementservice
+    JobInfo:
+      Service: com.android.statementservice/androidx.work.impl.background.systemjob.SystemJobService
+      Requires: charging=false batteryNotLow=false deviceIdle=true
+      Extras: mParcelledData.dataSize=180
+      Network type: NetworkRequest [ NONE id=0, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&VALIDATED&NOT_VCN_MANAGED Uid: 10040] ]
+      Minimum latency: +34d20h16m21s751ms
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+    Required constraints: TIMING_DELAY IDLE CONNECTIVITY [0x90000004]
+    Dynamic constraints:
+    Satisfied constraints: DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+    Unsatisfied constraints: TIMING_DELAY IDLE CONNECTIVITY [0x90000004]
+    Constraint history:
+      -1d8h33m3s183ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+      -1d3h15m55s407ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+      -1d1h59m43s340ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+      -5h0m26s399ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+      -3h17m44s889ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+      -3h13m58s233ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+      -2h34m31s559ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+      -1h12m24s180ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+      -36m15s663ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+      -34m46s229ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+    Tracking: CONNECTIVITY IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -7d5h42m8s402ms
+    Run time: earliest=+27d14h34m13s349ms, latest=none, original latest=none
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #u0a67/201: 852551a com.android.dialer/com.android.voicemail.impl.StatusCheckJobService
+    u0a67 tag=*job*/com.android.dialer/com.android.voicemail.impl.StatusCheckJobService
+    Source: uid=u0a67 user=0 pkg=com.android.dialer
+    JobInfo:
+      Service: com.android.dialer/com.android.voicemail.impl.StatusCheckJobService
+      PERIODIC: interval=+1d0h0m0s0ms flex=+1d0h0m0s0ms
+      Requires: charging=true batteryNotLow=false deviceIdle=false
+      Network type: NetworkRequest [ NONE id=0, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&VALIDATED&NOT_VCN_MANAGED Uid: 10067] ]
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: CHARGING TIMING_DELAY DEADLINE CONNECTIVITY [0xd0000001]
+    Dynamic constraints:
+    Satisfied constraints: CHARGING BATTERY_NOT_LOW TIMING_DELAY DEADLINE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0xc3400003]
+    Unsatisfied constraints: CONNECTIVITY [0x10000000]
+    Constraint history:
+      -25m12s570ms = BATTERY_NOT_LOW TIMING_DELAY DEADLINE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0xc3400002]
+      -20m17s610ms = CHARGING BATTERY_NOT_LOW TIMING_DELAY DEADLINE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0xc3400003]
+      -19m46s443ms = BATTERY_NOT_LOW TIMING_DELAY DEADLINE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0xc3400002]
+      -18m56s860ms = CHARGING BATTERY_NOT_LOW TIMING_DELAY DEADLINE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0xc3400003]
+      -18m52s282ms = BATTERY_NOT_LOW TIMING_DELAY DEADLINE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0xc3400002]
+      -17m13s935ms = CHARGING BATTERY_NOT_LOW TIMING_DELAY DEADLINE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0xc3400003]
+      -15m14s331ms = BATTERY_NOT_LOW TIMING_DELAY DEADLINE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0xc3400002]
+      -15m6s425ms = CHARGING BATTERY_NOT_LOW TIMING_DELAY DEADLINE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0xc3400003]
+      -9m57s213ms = BATTERY_NOT_LOW TIMING_DELAY DEADLINE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0xc3400002]
+      -5m56s145ms = CHARGING BATTERY_NOT_LOW TIMING_DELAY DEADLINE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0xc3400003]
+    Tracking: BATTERY CONNECTIVITY TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -3d3h25m5s150ms
+    Run time: earliest=-2d3h25m34s191ms, latest=-1d3h25m34s191ms, original latest=-1d3h25m34s191ms
+    Last successful run: 2022-07-15 18:33:07
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #u0a67/400: b82f8af com.android.dialer/.calllog.config.CallLogConfigImpl$PollingJob
+    u0a67 tag=*job*/com.android.dialer/.calllog.config.CallLogConfigImpl$PollingJob
+    Source: uid=u0a67 user=0 pkg=com.android.dialer
+    JobInfo:
+      Service: com.android.dialer/.calllog.config.CallLogConfigImpl$PollingJob
+      PERIODIC: interval=+1d0h0m0s0ms flex=+1d0h0m0s0ms
+      PERSISTED
+      Requires: charging=true batteryNotLow=false deviceIdle=true
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: CHARGING TIMING_DELAY DEADLINE IDLE [0xc0000005]
+    Dynamic constraints:
+    Satisfied constraints: CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE IDLE [0xc0000004]
+    Constraint history:
+      -25m12s570ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -20m17s610ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -19m46s443ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -18m56s860ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -18m52s282ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -17m13s935ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -15m14s331ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -15m6s425ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -9m57s213ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -5m56s145ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Tracking: BATTERY IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -3h17m44s702ms
+    Run time: earliest=+20h42m15s278ms, latest=+1d20h42m15s278ms, original latest=+1d20h42m15s278ms
+    Last successful run: 2022-07-18 18:40:28
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #u0a93/-200: 99605e4 com.android.providers.media.module/com.android.providers.media.IdleService
+    u0a93 tag=*job*/com.android.providers.media.module/com.android.providers.media.IdleService
+    Source: uid=u0a93 user=0 pkg=com.android.providers.media.module
+    JobInfo:
+      Service: com.android.providers.media.module/com.android.providers.media.IdleService
+      PERIODIC: interval=+1d0h0m0s0ms flex=+1d0h0m0s0ms
+      Requires: charging=true batteryNotLow=false deviceIdle=true
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: CHARGING TIMING_DELAY DEADLINE IDLE [0xc0000005]
+    Dynamic constraints:
+    Satisfied constraints: CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE IDLE [0xc0000004]
+    Constraint history:
+      -25m12s570ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -20m17s610ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -19m46s443ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -18m56s860ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -18m52s282ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -17m13s935ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -15m14s331ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -15m6s425ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+      -9m57s213ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+      -5m56s145ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+    Uid: active
+    Tracking: BATTERY IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -3h17m44s254ms
+    Run time: earliest=+20h34m26s902ms, latest=+1d20h34m26s902ms, original latest=+1d20h34m26s902ms
+    Last successful run: 2022-07-18 18:40:28
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #u0a96/0: 73abca com.android.permissioncontroller/.permission.service.LocationAccessCheck$LocationAccessCheckJobService
+    u0a96 tag=*job*/com.android.permissioncontroller/.permission.service.LocationAccessCheck$LocationAccessCheckJobService
+    Source: uid=u0a96 user=0 pkg=com.android.permissioncontroller
+    JobInfo:
+      Service: com.android.permissioncontroller/.permission.service.LocationAccessCheck$LocationAccessCheckJobService
+      PERIODIC: interval=+1d0h0m0s0ms flex=+2h24m0s0ms
+      Requires: charging=false batteryNotLow=false deviceIdle=false
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+    Dynamic constraints:
+    Satisfied constraints: DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE [0xc0000000]
+    Constraint history:
+      -5h46m25s401ms = BACKGROUND_NOT_RESTRICTED [0x400000]
+      -5h46m25s401ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400000]
+      -5h46m25s401ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+    Uid: active
+    Tracking: TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -5h46m25s401ms
+    Run time: earliest=+18h10m26s779ms, latest=+20h34m26s779ms, original latest=+20h34m26s779ms
+    Last successful run: 2022-07-18 16:11:47
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #u0a96/2: ec391b4 com.android.permissioncontroller/.hibernation.HibernationJobService
+    u0a96 tag=*job*/com.android.permissioncontroller/.hibernation.HibernationJobService
+    Source: uid=u0a96 user=0 pkg=com.android.permissioncontroller
+    JobInfo:
+      Service: com.android.permissioncontroller/.hibernation.HibernationJobService
+      PERIODIC: interval=+15d0h0m0s0ms flex=+15d0h0m0s0ms
+      PERSISTED
+      Requires: charging=false batteryNotLow=false deviceIdle=false
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+    Dynamic constraints:
+    Satisfied constraints: DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE [0xc0000000]
+    Constraint history:
+      -10d3h25m42s32ms = BACKGROUND_NOT_RESTRICTED [0x400000]
+      -10d3h25m41s672ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400000]
+      -10d3h25m41s672ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+    Uid: active
+    Tracking: TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -10d3h25m42s366ms
+    Run time: earliest=+4d20h34m17s631ms, latest=+19d20h34m17s631ms, original latest=+19d20h34m17s631ms
+    Last successful run: 2022-08-24 23:04:54
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #u0a101/1: 7d1d9b1 com.tencent.mobileqq/.msf.service.MSFAliveJobService
+    u0a101 tag=*job*/com.tencent.mobileqq/.msf.service.MSFAliveJobService
+    Source: uid=u0a101 user=0 pkg=com.tencent.mobileqq
+    JobInfo:
+      Service: com.tencent.mobileqq/.msf.service.MSFAliveJobService
+      PERIODIC: interval=+15m0s0ms flex=+15m0s0ms
+      PERSISTED
+      Requires: charging=false batteryNotLow=false deviceIdle=false
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+    Dynamic constraints:
+    Satisfied constraints: DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE [0xc0000000]
+    Constraint history:
+      -7m1s154ms = BACKGROUND_NOT_RESTRICTED [0x400000]
+      -7m1s154ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400000]
+      -7m1s154ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+    Tracking: TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -7m1s154ms
+    Run time: earliest=+7m18s545ms, latest=+22m18s545ms, original latest=+22m18s545ms
+    Last successful run: 2022-07-18 21:51:11
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #u0a106/3: 7d696fe com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+    u0a106 tag=*job*/com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+    Source: uid=u0a106 user=0 pkg=com.xunmeng.pinduoduo
+    JobInfo:
+      Service: com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+      PERIODIC: interval=+15m0s0ms flex=+15m0s0ms
+      PERSISTED
+      Requires: charging=false batteryNotLow=false deviceIdle=false
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+    Dynamic constraints:
+    Satisfied constraints: DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE [0xc0000000]
+    Constraint history:
+      -4m13s663ms = BACKGROUND_NOT_RESTRICTED [0x400000]
+      -4m13s663ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400000]
+      -4m13s663ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+    Tracking: TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Standby bucket: ACTIVE
+    Enqueue time: -4m13s663ms
+    Run time: earliest=+10m46s318ms, latest=+25m46s318ms, original latest=+25m46s318ms
+    Last successful run: 2022-07-18 21:53:59
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+
+ConnectivityController:
+  No available networks
+  
+  Current default network callbacks:
+    UID: 1000; No network
+    UID: 10040; No network
+    UID: 10065; No network
+    UID: 10067; No network
+    UID: 10106; No network
+  
+  UID Pecking Order:
+    0: UidStats{uid=10106 pri=0 #run=0 #readyWithConn=-879 #netAvail=0 #EJs=0 #reg=0 earliestEnqueue=0 earliestEJEnqueue=0 updated=-10d3h25m52s711ms}
+    1: UidStats{uid=1000 pri=35 #run=0 #readyWithConn=-15 #netAvail=0 #EJs=0 #reg=0 earliestEnqueue=0 earliestEJEnqueue=0 updated=-10d3h25m52s711ms}
+    2: UidStats{uid=10040 pri=0 #run=0 #readyWithConn=-61 #netAvail=0 #EJs=0 #reg=0 earliestEnqueue=0 earliestEJEnqueue=0 updated=-10d3h25m52s711ms}
+    3: UidStats{uid=10067 pri=0 #run=0 #readyWithConn=-3 #netAvail=0 #EJs=0 #reg=0 earliestEnqueue=0 earliestEJEnqueue=0 updated=-10d3h25m52s711ms}
+    4: UidStats{uid=10065 pri=0 #run=0 #readyWithConn=-1 #netAvail=0 #EJs=0 #reg=0 earliestEnqueue=0 earliestEJEnqueue=0 updated=-10d3h25m52s711ms}
+  
+  #1000/52417896 from 1000: NetworkRequest [ NONE id=0, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&VALIDATED&NOT_VCN_MANAGED Uid: 1000] ]
+  #u0a40/21 from u0a40: NetworkRequest [ NONE id=0, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&VALIDATED&NOT_VCN_MANAGED Uid: 10040] ]
+  #u0a67/201 from u0a67: NetworkRequest [ NONE id=0, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&VALIDATED&NOT_VCN_MANAGED Uid: 10067] ]
+  #1000/100324 from u0a106: NetworkRequest [ NONE id=0, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&VALIDATED&NOT_VCN_MANAGED Uid: 10106] ]
+  #1000/100001 from u0a106: NetworkRequest [ NONE id=0, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&VALIDATED&NOT_VCN_MANAGED Uid: 10106] ]
+
+TimeController:
+  Elapsed clock: 876352712
+  Next delay alarm in +7m18s523ms
+  Last delay alarm fired @ +7m1s205ms
+  Next deadline alarm in +22m18s523ms
+  
+  #u0a101/1 from u0a101: Delay=+7m18s523ms, Deadline=+22m18s523ms
+  #u0a106/3 from u0a106: Delay=+10m46s296ms, Deadline=+25m46s296ms
+  #1000/203142925 from 1000: Delay=+34m17s654ms, Deadline=+2h34m17s654ms
+  #1000/52417896 from 1000: Delay=-16h41m0s12ms, Deadline=+3h13m27s269ms
+  #1000/882313 from 1000: Delay=+8h34m18s83ms, Deadline=+20h34m18s83ms
+  #u0a96/0 from u0a96: Delay=+18h10m26s757ms, Deadline=+20h34m26s757ms
+  #u0a28/-100 from u0a28: Delay=+8h34m26s877ms, Deadline=+20h34m26s877ms
+  #1000/1 from 1000: Delay=+20h34m17s609ms, Deadline=+1d20h34m17s609ms
+  #1000/2131427341 from 1000: Delay=+20h34m17s611ms, Deadline=+1d20h34m17s611ms
+  #1000/2131427342 from 1000: Delay=+20h34m17s612ms, Deadline=+1d20h34m17s612ms
+  #1000/1145656139 from 1000: Delay=+20h34m17s629ms, Deadline=+1d20h34m17s629ms
+  #1000/800 from 1000: Delay=+20h34m17s653ms, Deadline=+1d20h34m17s653ms
+  #1000/2030028 from 1000: Delay=+20h34m17s653ms, Deadline=+1d20h34m17s653ms
+  #1000/765123 from 1000: Delay=+20h34m17s654ms, Deadline=+1d20h34m17s654ms
+  #1000/3923512 from 1000: Delay=+20h34m17s806ms, Deadline=+1d20h34m17s806ms
+  #1073/3345678 from 1073: Delay=+20h34m18s740ms, Deadline=+1d20h34m18s740ms
+  #1000/191934935 from 1000: Delay=+20h34m20s67ms, Deadline=+1d20h34m20s67ms
+  #1000/204561367 from 1000: Delay=+20h34m20s508ms, Deadline=+1d20h34m20s508ms
+  #u0a93/-200 from u0a93: Delay=+20h34m26s880ms, Deadline=+1d20h34m26s880ms
+  #u0a67/400 from u0a67: Delay=+20h42m15s256ms, Deadline=+1d20h42m15s256ms
+  #u0a96/2 from u0a96: Delay=+4d20h34m17s609ms, Deadline=+19d20h34m17s609ms
+  #1000/812 from 1000: Delay=+22h27m43s820ms, Deadline=N/A
+  #1000/13254266 from 1000: Delay=+22h27m38s413ms, Deadline=N/A
+  #1000/808 from 1000: Delay=+5h1m47s62ms, Deadline=N/A
+  #u0a40/21 from u0a40: Delay=+27d14h34m13s327ms, Deadline=N/A
+  #u0a40/4 from u0a40: Delay=+78d21h30m29s743ms, Deadline=N/A
+
+IdleController:
+  Currently idle: false
+  Idleness tracker:
+    mIdle: false
+    mScreenOn: true
+    mDockIdle: false
+    mProjectionActive: false
+  
+  #u0a28/-100 from u0a28
+  #1000/765123 from 1000
+  #1073/3345678 from 1073
+  #1000/1145656139 from 1000
+  #1000/2131427342 from 1000
+  #1000/13254266 from 1000
+  #1000/2131427341 from 1000
+  #1000/808 from 1000
+  #1000/882313 from 1000
+  #1000/191934935 from 1000
+  #1000/3923512 from 1000
+  #u0a40/21 from u0a40
+  #u0a93/-200 from u0a93
+  #1000/204561367 from 1000
+  #u0a67/400 from u0a67
+  #u0a40/4 from u0a40
+  #1000/203142925 from 1000
+  #1000/812 from 1000
+  #1000/800 from 1000
+  #1000/2030028 from 1000
+
+BatteryController:
+  Stable power: true
+  Not low: true
+  
+  #u0a28/-100 from u0a28
+  #1073/3345678 from 1073
+  #1000/1145656139 from 1000
+  #1000/2131427342 from 1000
+  #1000/52417896 from 1000
+  #1000/2131427341 from 1000
+  #1000/808 from 1000
+  #1000/882313 from 1000
+  #u0a67/201 from u0a67
+  #1000/191934935 from 1000
+  #1000/3923512 from 1000
+  #u0a93/-200 from u0a93
+  #u0a67/400 from u0a67
+  #1000/203142925 from 1000
+  #1000/1 from 1000
+  #1000/800 from 1000
+  #1000/2030028 from 1000
+
+StorageController:
+  Not low: true
+  Sequence: -1
+  
+  #1000/100324 from u0a106
+  #1000/100001 from u0a106
+
+BackgroundJobsController:
+  Current AppStateTracker State:
+    Forced App Standby Feature enabled: true
+    Force all apps standby: false
+    Small Battery Device: false
+    Force all apps standby for small battery device: false
+    Plugged In: true
+    Active uids: [u0a61 u0a74 u0a83 u0a84 u0a88 u0a89 u0a90 u0a93 u0a96 u0a99]
+    Except-idle + user exemption list appids: [2000, 10025, 10026, 10028, 10032, 10038, 10065, 10085, 10098, 10099, 10105]
+    User exemption list appids: [10099, 10105]
+    Temp exemption list appids: [1000]
+    Exempted bucket packages:
+      User 0
+        com.android.internal.display.cutout.emulation.corner
+        com.android.internal.display.cutout.emulation.double
+        com.android.providers.telephony
+        com.android.providers.media
+        com.android.internal.systemui.navbar.gestural_wide_back
+        com.android.settings.overlay.g020i
+        com.android.externalstorage
+        com.android.mms.service
+        com.android.providers.downloads
+        com.android.internal.systemui.onehanded.gestural
+        vendor.qti.hardware.cacert.server
+        com.android.connectivity.resources.overlay
+        com.qualcomm.qti.gpudrivers.msmnile.api30
+        com.qualcomm.qti.telephonyservice
+        vendor.qti.iwlan
+        com.android.pacprocessor
+        com.android.networkstack
+        com.android.internal.display.cutout.emulation.hole
+        com.android.internal.display.cutout.emulation.tall
+        com.android.modulemetadata
+        com.android.carrierconfig
+        com.android.internal.systemui.navbar.threebutton
+        com.android.ons
+        com.android.settings.auto_generated_rro_vendor__
+        com.android.systemui.auto_generated_rro_vendor__
+        org.codeaurora.ims
+        com.android.statementservice
+        com.android.internal.systemui.navbar.gestural_extra_wide_back
+        com.qualcomm.qcrilmsgtunnel
+        com.android.providers.settings
+        com.android.sharedstoragebackup
+        com.android.dreams.basic
+        com.android.se
+        com.android.inputdevices
+        com.xunmeng.pinduoduo
+        com.android.providers.settings.auto_generated_rro_vendor__
+        com.android.cellbroadcastreceiver
+        android.ext.shared
+        com.android.onetimeinitializer
+        com.android.cellbroadcastservice
+        com.android.printservice.recommendation
+        com.android.storagemanager.auto_generated_rro_vendor__
+        com.android.calllogbackup
+        com.android.cameraextensions
+        com.android.localtransport
+        com.android.theme.font.notoserifsource
+        com.android.proxyhandler
+        com.android.internal.display.cutout.emulation.waterfall
+        com.android.networkstack.tethering
+        com.google.pixel.coral.gpuprofiling.vulkanlayer
+        com.android.providers.partnerbookmarks
+        com.android.server.telecom.auto_generated_rro_vendor__
+        com.android.phone.auto_generated_rro_vendor__
+        com.android.traceur.auto_generated_rro_vendor__
+        com.android.wifi.resources.pixel
+        com.android.bookmarkprovider
+        com.android.settings
+        com.qualcomm.qti.cne
+        com.jingdong.app.mall
+        com.android.networkstack.permissionconfig
+        com.android.emergency.auto_generated_rro_vendor__
+        com.android.nfc.auto_generated_rro_vendor__
+        com.example.myfirstapp
+        com.android.shell
+        com.android.wallpaperbackup
+        com.android.providers.blockednumber
+        com.android.providers.userdictionary
+        com.android.internal.systemui.navbar.gestural
+        com.android.location.fused
+        com.datacollector
+        com.android.bluetoothmidiservice
+        com.qualcomm.timeservice
+        com.android.internal.systemui.navbar.gestural_narrow_back
+        android.auto_generated_rro_vendor__
+    
+    Restricted packages:
+    Stats:
+      UID_FG_STATE_CHANGED: count=0, total=0.0ms, avg=0.000ms, max calls/s=0 max dur/s=0.0ms max time=0.0ms
+      UID_ACTIVE_STATE_CHANGED: count=462, total=425.2ms, avg=0.920ms, max calls/s=15 max dur/s=46.3ms max time=46.3ms
+      RUN_ANY_CHANGED: count=0, total=0.0ms, avg=0.000ms, max calls/s=0 max dur/s=0.0ms max time=0.0ms
+      ALL_UNEXEMPTED: count=1, total=0.4ms, avg=0.394ms, max calls/s=0 max dur/s=0.0ms max time=0.4ms
+      ALL_EXEMPTION_LIST_CHANGED: count=0, total=0.0ms, avg=0.000ms, max calls/s=0 max dur/s=0.0ms max time=0.0ms
+      TEMP_EXEMPTION_LIST_CHANGED: count=655, total=224.0ms, avg=0.342ms, max calls/s=18 max dur/s=35.6ms max time=35.6ms
+      EXEMPTED_BUCKET_CHANGED: count=10, total=1.2ms, avg=0.116ms, max calls/s=3 max dur/s=0.4ms max time=0.2ms
+      FORCE_ALL_CHANGED: count=0, total=0.0ms, avg=0.000ms, max calls/s=0 max dur/s=0.0ms max time=0.0ms
+      FORCE_APP_STANDBY_FEATURE_FLAG_CHANGED: count=0, total=0.0ms, avg=0.000ms, max calls/s=0 max dur/s=0.0ms max time=0.0ms
+      IS_UID_ACTIVE_CACHED: count=0, total=0.0ms, avg=0.000ms, max calls/s=0 max dur/s=0.0ms max time=0.0ms
+      IS_UID_ACTIVE_RAW: count=368, total=79.5ms, avg=0.216ms, max calls/s=5 max dur/s=3.1ms max time=3.1ms
+  
+  #u0a106/3 from u0a106 idle: com.xunmeng.pinduoduo [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #u0a101/1 from u0a101 idle: com.tencent.mobileqq [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #u0a96/2 from u0a96 active: com.android.permissioncontroller [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #u0a96/0 from u0a96 active: com.android.permissioncontroller [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #u0a93/-200 from u0a93 active: com.android.providers.media.module [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #u0a67/400 from u0a67 idle: com.android.dialer [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #u0a67/201 from u0a67 idle: com.android.dialer [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #u0a40/4 from u0a40 idle: com.android.statementservice [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #u0a40/21 from u0a40 idle: com.android.statementservice [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #u0a28/-100 from u0a28 idle, exempted: com.android.providers.downloads [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #1073/3345678 from 1073 active: com.android.networkstack [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #1000/100001 from u0a106 idle: com.xunmeng.pinduoduo [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #1000/2030028 from 1000 active, exempted: android [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #1000/800 from 1000 active, exempted: android [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #1000/812 from 1000 active, exempted: android [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #1000/1 from 1000 active, exempted: com.android.providers.settings [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #1000/203142925 from 1000 active, exempted: android [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #1000/204561367 from 1000 active, exempted: android [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #1000/3923512 from 1000 active, exempted: android [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #1000/191934935 from 1000 active, exempted: android [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #1000/882313 from 1000 active, exempted: android [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #1000/808 from 1000 active, exempted: android [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #1000/2131427341 from 1000 active, exempted: com.android.settings [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #1000/52417896 from 1000 active, exempted: android [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #1000/13254266 from 1000 active, exempted: android [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #1000/2131427342 from 1000 active, exempted: com.android.settings [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #1000/1145656139 from 1000 active, exempted: android [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #1000/100324 from u0a106 idle: com.xunmeng.pinduoduo [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+  #1000/765123 from 1000 active, exempted: android [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+
+ContentObserverController:
+  
+
+DeviceIdleJobsController:
+  Idle mode: false
+  
+  #u0a106/3 from u0a106: com.xunmeng.pinduoduo RUNNABLE
+  #u0a101/1 from u0a101: com.tencent.mobileqq RUNNABLE
+  #u0a96/2 from u0a96: com.android.permissioncontroller RUNNABLE
+  #u0a96/0 from u0a96: com.android.permissioncontroller RUNNABLE
+  #u0a93/-200 from u0a93: com.android.providers.media.module RUNNABLE
+  #u0a67/400 from u0a67: com.android.dialer RUNNABLE
+  #u0a67/201 from u0a67: com.android.dialer RUNNABLE
+  #u0a40/4 from u0a40: com.android.statementservice RUNNABLE
+  #u0a40/21 from u0a40: com.android.statementservice RUNNABLE
+  #u0a28/-100 from u0a28: com.android.providers.downloads RUNNABLE
+  #1073/3345678 from 1073: com.android.networkstack RUNNABLE
+  #1000/100001 from u0a106: com.xunmeng.pinduoduo RUNNABLE
+  #1000/2030028 from 1000: android RUNNABLE
+  #1000/800 from 1000: android RUNNABLE
+  #1000/812 from 1000: android RUNNABLE
+  #1000/1 from 1000: com.android.providers.settings RUNNABLE
+  #1000/203142925 from 1000: android RUNNABLE
+  #1000/204561367 from 1000: android RUNNABLE
+  #1000/3923512 from 1000: android RUNNABLE
+  #1000/191934935 from 1000: android RUNNABLE
+  #1000/882313 from 1000: android RUNNABLE
+  #1000/808 from 1000: android RUNNABLE
+  #1000/2131427341 from 1000: com.android.settings RUNNABLE
+  #1000/52417896 from 1000: android RUNNABLE
+  #1000/13254266 from 1000: android RUNNABLE
+  #1000/2131427342 from 1000: com.android.settings RUNNABLE
+  #1000/1145656139 from 1000: android RUNNABLE
+  #1000/100324 from u0a106: com.xunmeng.pinduoduo RUNNABLE
+  #1000/765123 from 1000: android RUNNABLE
+
+QuotaController:
+  Is charging: true
+  Current elapsed time: 876352719
+  
+  Foreground UIDs: {1000=true, 1001=true, 1027=true, 1037=true, 1068=true, 1073=true, 10061=true, 10083=true, 10088=true, 10089=true, 10093=true}
+  
+  Cached top apps: {1000=true, 1001=true, 1027=true, 1037=true, 1068=true, 1073=true, 10061=true, 10083=true, 10088=true, 10089=true, 10093=true}
+  Cached top app grace period: {10084=876404657}
+  Cached temp allowlist: {1000=true}
+  Cached temp allowlist grace period: {1000=876413642, 1001=2312139, 1027=219112, 10026=2312341, 10061=219995, 10074=2312341, 10089=219995, 10093=2312341, 10100=2312341}
+  
+  Special apps:
+    System installers={0->{com.android.packageinstaller, com.android.managedprovisioning, com.android.shell}}
+  
+  #u0a96/0 from u0a96
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #u0a96/2 from u0a96
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #u0a93/-200 from u0a93
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #1000/2131427342 from 1000
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #1000/2131427341 from 1000
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #u0a101/1 from u0a101
+    ACTIVE, within regular quota, 599973ms remaining in quota
+  #u0a67/201 from u0a67
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #u0a67/400 from u0a67
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #1000/100324 from u0a106
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #u0a106/3 from u0a106
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #1000/100001 from u0a106
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #1000/1 from 1000
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #u0a40/21 from u0a40
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #u0a40/4 from u0a40
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #1000/765123 from 1000
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #1000/1145656139 from 1000
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #1000/13254266 from 1000
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #1000/52417896 from 1000
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #1000/808 from 1000
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #1000/882313 from 1000
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #1000/191934935 from 1000
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #1000/3923512 from 1000
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #1000/204561367 from 1000
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #1000/203142925 from 1000
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #1000/812 from 1000
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #1000/800 from 1000
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #1000/2030028 from 1000
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #1073/3345678 from 1073
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  #u0a28/-100 from u0a28
+    ACTIVE, within regular quota, 600000ms remaining in quota
+  
+  Timer<REG>{<0>com.android.providers.downloads} NOT active, 0 running bg jobs
+  
+  Timer<REG>{<0>com.android.messaging} NOT active, 0 running bg jobs
+  
+  Timer<REG>{<0>com.android.statementservice} NOT active, 0 running bg jobs
+  
+    Saved sessions:
+  
+  Timer<REG>{<0>com.xunmeng.pinduoduo} NOT active, 0 running bg jobs
+  
+    Saved sessions:
+      874898959 -> 874898972 (13), 1 bg jobs.
+      873702061 -> 873702076 (15), 1 bg jobs.
+      872802069 -> 872802076 (7), 1 bg jobs.
+      871902118 -> 871902140 (22), 1 bg jobs.
+      871002110 -> 871002149 (39), 1 bg jobs.
+      870102116 -> 870102126 (10), 1 bg jobs.
+      869202108 -> 869202131 (23), 1 bg jobs.
+      868302137 -> 868302185 (48), 1 bg jobs.
+      867518134 -> 867518147 (13), 1 bg jobs.
+      866502143 -> 866502169 (26), 1 bg jobs.
+      865602138 -> 865602153 (15), 1 bg jobs.
+      859216338 -> 859216357 (19), 1 bg jobs.
+      858616295 -> 858616312 (17), 1 bg jobs.
+      858016280 -> 858016292 (12), 1 bg jobs.
+      857416255 -> 857416272 (17), 1 bg jobs.
+      856816235 -> 856816247 (12), 1 bg jobs.
+      856216195 -> 856216215 (20), 1 bg jobs.
+      855616138 -> 855616156 (18), 1 bg jobs.
+      855016094 -> 855016108 (14), 1 bg jobs.
+      854416040 -> 854416052 (12), 1 bg jobs.
+      853815983 -> 853816001 (18), 1 bg jobs.
+      853215928 -> 853215947 (19), 1 bg jobs.
+      852615908 -> 852615926 (18), 1 bg jobs.
+      852015863 -> 852015879 (16), 1 bg jobs.
+      851415836 -> 851415855 (19), 1 bg jobs.
+      850815809 -> 850815827 (18), 1 bg jobs.
+      850215752 -> 850215768 (16), 1 bg jobs.
+      849615706 -> 849615719 (13), 1 bg jobs.
+      849015683 -> 849015689 (6), 1 bg jobs.
+      848415631 -> 848415646 (15), 1 bg jobs.
+      847815597 -> 847815610 (13), 1 bg jobs.
+      847215559 -> 847215575 (16), 1 bg jobs.
+      846615510 -> 846615522 (12), 1 bg jobs.
+      846015489 -> 846015509 (20), 1 bg jobs.
+      845415448 -> 845415464 (16), 1 bg jobs.
+      844815389 -> 844815406 (17), 1 bg jobs.
+      844215342 -> 844215360 (18), 1 bg jobs.
+      843615287 -> 843615312 (25), 1 bg jobs.
+      843015244 -> 843015260 (16), 1 bg jobs.
+      842415219 -> 842415242 (23), 1 bg jobs.
+      841815180 -> 841815196 (16), 1 bg jobs.
+      841215119 -> 841215136 (17), 1 bg jobs.
+      840615072 -> 840615088 (16), 1 bg jobs.
+      840015006 -> 840015021 (15), 1 bg jobs.
+      839414949 -> 839414963 (14), 1 bg jobs.
+      838814906 -> 838814924 (18), 1 bg jobs.
+      838214852 -> 838214869 (17), 1 bg jobs.
+      837614816 -> 837614827 (11), 1 bg jobs.
+      837014801 -> 837014818 (17), 1 bg jobs.
+      836414740 -> 836414758 (18), 1 bg jobs.
+      835814689 -> 835814707 (18), 1 bg jobs.
+      835214656 -> 835214674 (18), 1 bg jobs.
+      834614635 -> 834614647 (12), 1 bg jobs.
+      834014619 -> 834014631 (12), 1 bg jobs.
+      833414567 -> 833414586 (19), 1 bg jobs.
+      832814494 -> 832814524 (30), 1 bg jobs.
+      832214462 -> 832214481 (19), 1 bg jobs.
+      831614435 -> 831614457 (22), 1 bg jobs.
+      831014373 -> 831014391 (18), 1 bg jobs.
+      830414317 -> 830414329 (12), 1 bg jobs.
+      829814271 -> 829814291 (20), 1 bg jobs.
+      829214223 -> 829214237 (14), 1 bg jobs.
+      828614168 -> 828614184 (16), 1 bg jobs.
+      828014111 -> 828014127 (16), 1 bg jobs.
+      827414055 -> 827414073 (18), 1 bg jobs.
+      826813996 -> 826814012 (16), 1 bg jobs.
+      826213965 -> 826213988 (23), 1 bg jobs.
+      825613909 -> 825613928 (19), 1 bg jobs.
+      825013882 -> 825013901 (19), 1 bg jobs.
+      824413841 -> 824413860 (19), 1 bg jobs.
+      823813783 -> 823813799 (16), 1 bg jobs.
+      823213756 -> 823213772 (16), 1 bg jobs.
+      822613706 -> 822613717 (11), 1 bg jobs.
+      822013652 -> 822013666 (14), 1 bg jobs.
+      821413595 -> 821413609 (14), 1 bg jobs.
+      820813541 -> 820813554 (13), 1 bg jobs.
+      820213488 -> 820213506 (18), 1 bg jobs.
+      819613451 -> 819613470 (19), 1 bg jobs.
+      819013432 -> 819013450 (18), 1 bg jobs.
+      818413368 -> 818413389 (21), 1 bg jobs.
+      817813325 -> 817813338 (13), 1 bg jobs.
+      817213297 -> 817213314 (17), 1 bg jobs.
+      816613239 -> 816613253 (14), 1 bg jobs.
+      816013185 -> 816013205 (20), 1 bg jobs.
+      815413152 -> 815413170 (18), 1 bg jobs.
+      814813112 -> 814813123 (11), 1 bg jobs.
+      814213095 -> 814213112 (17), 1 bg jobs.
+      813613077 -> 813613093 (16), 1 bg jobs.
+      813013014 -> 813013033 (19), 1 bg jobs.
+      812412970 -> 812412987 (17), 1 bg jobs.
+      811812932 -> 811812950 (18), 1 bg jobs.
+      811212895 -> 811212913 (18), 1 bg jobs.
+      810612858 -> 810612879 (21), 1 bg jobs.
+      810012825 -> 810012844 (19), 1 bg jobs.
+      809412789 -> 809412805 (16), 1 bg jobs.
+      808812767 -> 808812781 (14), 1 bg jobs.
+      808212704 -> 808212718 (14), 1 bg jobs.
+      807612669 -> 807612682 (13), 1 bg jobs.
+      807012647 -> 807012666 (19), 1 bg jobs.
+      806412593 -> 806412606 (13), 1 bg jobs.
+      805812573 -> 805812590 (17), 1 bg jobs.
+      805212529 -> 805212539 (10), 1 bg jobs.
+      804612473 -> 804612493 (20), 1 bg jobs.
+      804012423 -> 804012441 (18), 1 bg jobs.
+      803412378 -> 803412391 (13), 1 bg jobs.
+      802812317 -> 802812336 (19), 1 bg jobs.
+      802212266 -> 802212286 (20), 1 bg jobs.
+      801612235 -> 801612253 (18), 1 bg jobs.
+      801012183 -> 801012198 (15), 1 bg jobs.
+      800412146 -> 800412163 (17), 1 bg jobs.
+      799812088 -> 799812105 (17), 1 bg jobs.
+      799212045 -> 799212051 (6), 1 bg jobs.
+      798611985 -> 798612007 (22), 1 bg jobs.
+      798011963 -> 798011985 (22), 1 bg jobs.
+      797411909 -> 797411921 (12), 1 bg jobs.
+      796811890 -> 796811910 (20), 1 bg jobs.
+      796211848 -> 796211866 (18), 1 bg jobs.
+      795611793 -> 795611813 (20), 1 bg jobs.
+      795011766 -> 795011794 (28), 1 bg jobs.
+      794411735 -> 794411751 (16), 1 bg jobs.
+      793811706 -> 793811720 (14), 1 bg jobs.
+      793211685 -> 793211701 (16), 1 bg jobs.
+      792611653 -> 792611673 (20), 1 bg jobs.
+      792011614 -> 792011637 (23), 1 bg jobs.
+      791411555 -> 791411571 (16), 1 bg jobs.
+      790811536 -> 790811549 (13), 1 bg jobs.
+      790211518 -> 790211535 (17), 1 bg jobs.
+  
+  Timer<REG>{<0>com.android.dialer} NOT active, 0 running bg jobs
+  
+  Timer<REG>{<0>com.android.gallery3d} NOT active, 0 running bg jobs
+  
+    Saved sessions:
+  
+  Timer<REG>{<0>com.tencent.mobileqq} NOT active, 0 running bg jobs
+  
+    Saved sessions:
+      875931509 -> 875931536 (27), 1 bg jobs.
+      875003967 -> 875003998 (31), 1 bg jobs.
+      874177087 -> 874177107 (20), 1 bg jobs.
+      873350090 -> 873350113 (23), 1 bg jobs.
+      872437077 -> 872437102 (25), 1 bg jobs.
+      871464106 -> 871464132 (26), 1 bg jobs.
+      870671084 -> 870671117 (33), 1 bg jobs.
+      869695150 -> 869695170 (20), 1 bg jobs.
+      868781117 -> 868781169 (52), 1 bg jobs.
+      867928134 -> 867928157 (23), 1 bg jobs.
+      867073148 -> 867073175 (27), 1 bg jobs.
+      866097197 -> 866097216 (19), 1 bg jobs.
+      865182149 -> 865182256 (107), 1 bg jobs.
+      858700633 -> 858700664 (31), 1 bg jobs.
+      857967317 -> 857967331 (14), 1 bg jobs.
+      856953795 -> 856953812 (17), 1 bg jobs.
+      856173540 -> 856173559 (19), 1 bg jobs.
+      855153260 -> 855153275 (15), 1 bg jobs.
+      854367238 -> 854367253 (15), 1 bg jobs.
+      853352735 -> 853352750 (15), 1 bg jobs.
+      852572498 -> 852572507 (9), 1 bg jobs.
+      851552224 -> 851552241 (17), 1 bg jobs.
+      850767138 -> 850767157 (19), 1 bg jobs.
+      849751735 -> 849751748 (13), 1 bg jobs.
+      848971527 -> 848971541 (14), 1 bg jobs.
+      847951250 -> 847951263 (13), 1 bg jobs.
+      847167059 -> 847167077 (18), 1 bg jobs.
+      846270819 -> 846270831 (12), 1 bg jobs.
+      845175901 -> 845175920 (19), 1 bg jobs.
+      845165118 -> 845165874 (756), 1 bg jobs.
+      844215328 -> 844215349 (21), 1 bg jobs.
+      843566975 -> 843566995 (20), 1 bg jobs.
+      842415213 -> 842415238 (25), 1 bg jobs.
+      841769632 -> 841769647 (15), 1 bg jobs.
+      840615059 -> 840615080 (21), 1 bg jobs.
+      839549069 -> 839549084 (15), 1 bg jobs.
+      838766855 -> 838766875 (20), 1 bg jobs.
+      837748623 -> 837748638 (15), 1 bg jobs.
+      837014797 -> 837014811 (14), 1 bg jobs.
+      836366799 -> 836366813 (14), 1 bg jobs.
+      835214649 -> 835214669 (20), 1 bg jobs.
+      834567729 -> 834567747 (18), 1 bg jobs.
+      833414559 -> 833414578 (19), 1 bg jobs.
+      832766707 -> 832766720 (13), 1 bg jobs.
+      831614427 -> 831614448 (21), 1 bg jobs.
+      830511201 -> 830511218 (17), 1 bg jobs.
+      830500504 -> 830501200 (696), 1 bg jobs.
+      829600502 -> 829600520 (18), 1 bg jobs.
+      828700507 -> 828700518 (11), 1 bg jobs.
+      827800504 -> 827800519 (15), 1 bg jobs.
+      826900503 -> 826900511 (8), 1 bg jobs.
+      826000504 -> 826000517 (13), 1 bg jobs.
+      825100508 -> 825100518 (10), 1 bg jobs.
+      824200502 -> 824200519 (17), 1 bg jobs.
+      823300505 -> 823300516 (11), 1 bg jobs.
+      822400503 -> 822400516 (13), 1 bg jobs.
+      821500513 -> 821500528 (15), 1 bg jobs.
+      820600503 -> 820600515 (12), 1 bg jobs.
+      819700502 -> 819700513 (11), 1 bg jobs.
+      818800505 -> 818800521 (16), 1 bg jobs.
+      817900505 -> 817900518 (13), 1 bg jobs.
+      817000503 -> 817000518 (15), 1 bg jobs.
+      816023955 -> 816023976 (21), 1 bg jobs.
+      816013180 -> 816013566 (386), 1 bg jobs.
+      815200503 -> 815200516 (13), 1 bg jobs.
+      814213090 -> 814213107 (17), 1 bg jobs.
+      813400500 -> 813400510 (10), 1 bg jobs.
+      812412960 -> 812412980 (20), 1 bg jobs.
+      811600505 -> 811600524 (19), 1 bg jobs.
+      810612850 -> 810612875 (25), 1 bg jobs.
+      809800503 -> 809800519 (16), 1 bg jobs.
+      808812756 -> 808812786 (30), 1 bg jobs.
+      808000505 -> 808000514 (9), 1 bg jobs.
+      807012639 -> 807012661 (22), 1 bg jobs.
+      806200504 -> 806200516 (12), 1 bg jobs.
+      805212520 -> 805212546 (26), 1 bg jobs.
+      804400502 -> 804400520 (18), 1 bg jobs.
+      803412371 -> 803412396 (25), 1 bg jobs.
+      802600501 -> 802600519 (18), 1 bg jobs.
+      801569819 -> 801569839 (20), 1 bg jobs.
+      801559074 -> 801559798 (724), 1 bg jobs.
+      800358786 -> 800358802 (16), 1 bg jobs.
+      799458575 -> 799458592 (17), 1 bg jobs.
+      798558330 -> 798558343 (13), 1 bg jobs.
+      797958188 -> 797958207 (19), 1 bg jobs.
+      796757899 -> 796757915 (16), 1 bg jobs.
+      796157768 -> 796157779 (11), 1 bg jobs.
+      794868589 -> 794868601 (12), 1 bg jobs.
+      794197292 -> 794197310 (18), 1 bg jobs.
+      793157079 -> 793157088 (9), 1 bg jobs.
+      792256846 -> 792256864 (18), 1 bg jobs.
+      791356621 -> 791356634 (13), 1 bg jobs.
+      790756479 -> 790756495 (16), 1 bg jobs.
+  
+  Timer<REG>{<0>com.android.imsserviceentitlement} NOT active, 0 running bg jobs
+  
+    Saved sessions:
+  
+  Timer<REG>{<0>com.android.permissioncontroller} NOT active, 0 running bg jobs
+  
+    Saved sessions:
+      855567269 -> 855567288 (19), 1 bg jobs.
+  
+  
+  Timer<EJ>{<0>com.android.providers.calendar} NOT active, 0 running bg jobs (debit adj=0)
+  
+    Saved sessions:
+      843100506 -> 843100527 (21), 1 bg jobs.
+      821500509 -> 821500536 (27), 1 bg jobs.
+      799900499 -> 799900522 (23), 1 bg jobs.
+  
+  
+  TopAppTimer{<0>com.datacollector} NOT active
+  TopAppTimer{<0>com.android.systemui} NOT active
+  TopAppTimer{<0>com.android.deskclock} NOT active
+  TopAppTimer{<0>com.example.myfirstapp} started at 876344344 (8378ms ago)
+    com.example.myfirstapp.MainActivity
+  TopAppTimer{<0>com.jingdong.app.mall} NOT active
+  TopAppTimer{<0>com.android.settings} NOT active
+  TopAppTimer{<0>com.android.settings.intelligence} NOT active
+  TopAppTimer{<0>com.android.launcher3} NOT active
+  TopAppTimer{<0>com.tencent.qqmusic} NOT active
+  
+  Cached execution stats:
+    <0>com.android.providers.calendar
+      ACTIVE: expirationTime=864632289, windowSizeMs=600000, jobCountLimit=75, sessionCountLimit=75, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=0, rateLimitJobCountWindow=0, rateLimitSessionCountExpirationTime=0, rateLimitSessionCountWindow=0
+    <0>com.android.providers.downloads
+      ACTIVE: expirationTime=945189345, windowSizeMs=600000, jobCountLimit=75, sessionCountLimit=75, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=0, rateLimitJobCountWindow=0, rateLimitSessionCountExpirationTime=0, rateLimitSessionCountWindow=0
+    <0>com.android.networkstack
+      ACTIVE: expirationTime=945189345, windowSizeMs=600000, jobCountLimit=75, sessionCountLimit=75, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=0, rateLimitJobCountWindow=0, rateLimitSessionCountExpirationTime=0, rateLimitSessionCountWindow=0
+    <0>android
+      ACTIVE: expirationTime=944996151, windowSizeMs=600000, jobCountLimit=75, sessionCountLimit=75, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=0, rateLimitJobCountWindow=0, rateLimitSessionCountExpirationTime=0, rateLimitSessionCountWindow=0
+    <0>com.android.statementservice
+      ACTIVE: expirationTime=945189345, windowSizeMs=600000, jobCountLimit=75, sessionCountLimit=75, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=2108624, rateLimitJobCountWindow=14, rateLimitSessionCountExpirationTime=2109207, rateLimitSessionCountWindow=3
+      WORKING_SET: expirationTime=2049451, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=2108624, rateLimitJobCountWindow=14, rateLimitSessionCountExpirationTime=2109207, rateLimitSessionCountWindow=3
+      FREQUENT: expirationTime=2049451, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=2108624, rateLimitJobCountWindow=14, rateLimitSessionCountExpirationTime=2109207, rateLimitSessionCountWindow=3
+      RARE: expirationTime=2049451, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=2108624, rateLimitJobCountWindow=14, rateLimitSessionCountExpirationTime=2109207, rateLimitSessionCountWindow=3
+      NEVER: expirationTime=2049451, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=2108624, rateLimitJobCountWindow=14, rateLimitSessionCountExpirationTime=2109207, rateLimitSessionCountWindow=3
+      RESTRICTED: expirationTime=2049451, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=2108624, rateLimitJobCountWindow=14, rateLimitSessionCountExpirationTime=2109207, rateLimitSessionCountWindow=3
+    <0>com.android.providers.settings
+      ACTIVE: expirationTime=944996151, windowSizeMs=600000, jobCountLimit=75, sessionCountLimit=75, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=0, rateLimitJobCountWindow=0, rateLimitSessionCountExpirationTime=0, rateLimitSessionCountWindow=0
+    <0>com.xunmeng.pinduoduo
+      ACTIVE: expirationTime=876611518, windowSizeMs=600000, jobCountLimit=75, sessionCountLimit=75, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=2179, bgJobCountInMaxPeriod=127, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=874958959, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=874958972, rateLimitSessionCountWindow=1
+      WORKING_SET: expirationTime=874898972, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=874958959, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=874958972, rateLimitSessionCountWindow=1
+      FREQUENT: expirationTime=874898972, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=874958959, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=874958972, rateLimitSessionCountWindow=1
+      RARE: expirationTime=874898972, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=874958959, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=874958972, rateLimitSessionCountWindow=1
+      NEVER: expirationTime=874898972, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=874958959, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=874958972, rateLimitSessionCountWindow=1
+      RESTRICTED: expirationTime=874898972, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=874958959, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=874958972, rateLimitSessionCountWindow=1
+    <0>com.android.dialer
+      ACTIVE: expirationTime=945189345, windowSizeMs=600000, jobCountLimit=75, sessionCountLimit=75, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=0, rateLimitJobCountWindow=0, rateLimitSessionCountExpirationTime=0, rateLimitSessionCountWindow=0
+    <0>com.android.gallery3d
+      ACTIVE: expirationTime=711921305, windowSizeMs=600000, jobCountLimit=75, sessionCountLimit=75, executionTimeInWindow=0, bgJobCountInWindow=1, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=1, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=711981290, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=711981305, rateLimitSessionCountWindow=1
+      WORKING_SET: expirationTime=711921305, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=711981290, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=711981305, rateLimitSessionCountWindow=1
+      FREQUENT: expirationTime=711921305, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=711981290, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=711981305, rateLimitSessionCountWindow=1
+      RARE: expirationTime=711921305, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=711981290, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=711981305, rateLimitSessionCountWindow=1
+      NEVER: expirationTime=711921305, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=711981290, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=711981305, rateLimitSessionCountWindow=1
+      RESTRICTED: expirationTime=711921305, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=711981290, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=711981305, rateLimitSessionCountWindow=1
+    <0>com.tencent.mobileqq
+      ACTIVE: expirationTime=876531509, windowSizeMs=600000, jobCountLimit=75, sessionCountLimit=75, executionTimeInWindow=27, bgJobCountInWindow=1, executionTimeInMaxPeriod=4240, bgJobCountInMaxPeriod=93, sessionCountInWindow=1, inQuotaTime=0, rateLimitJobCountExpirationTime=875991509, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=875991536, rateLimitSessionCountWindow=1
+      WORKING_SET: expirationTime=875931536, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=875991509, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=875991536, rateLimitSessionCountWindow=1
+      FREQUENT: expirationTime=875931536, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=875991509, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=875991536, rateLimitSessionCountWindow=1
+      RARE: expirationTime=875931536, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=875991509, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=875991536, rateLimitSessionCountWindow=1
+      NEVER: expirationTime=875931536, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=875991509, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=875991536, rateLimitSessionCountWindow=1
+      RESTRICTED: expirationTime=875931536, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=875991509, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=875991536, rateLimitSessionCountWindow=1
+    <0>com.android.imsserviceentitlement
+      ACTIVE: expirationTime=2048748, windowSizeMs=600000, jobCountLimit=75, sessionCountLimit=75, executionTimeInWindow=64, bgJobCountInWindow=1, executionTimeInMaxPeriod=64, bgJobCountInMaxPeriod=1, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=2108611, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=2108748, rateLimitSessionCountWindow=1
+      WORKING_SET: expirationTime=2048748, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=2108611, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=2108748, rateLimitSessionCountWindow=1
+      FREQUENT: expirationTime=2048748, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=2108611, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=2108748, rateLimitSessionCountWindow=1
+      RARE: expirationTime=2048748, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=2108611, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=2108748, rateLimitSessionCountWindow=1
+      NEVER: expirationTime=2048748, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=2108611, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=2108748, rateLimitSessionCountWindow=1
+      RESTRICTED: expirationTime=2048748, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=2108611, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=2108748, rateLimitSessionCountWindow=1
+    <0>com.android.settings
+      ACTIVE: expirationTime=944996151, windowSizeMs=600000, jobCountLimit=75, sessionCountLimit=75, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=0, rateLimitJobCountWindow=0, rateLimitSessionCountExpirationTime=0, rateLimitSessionCountWindow=0
+    <0>com.android.providers.media.module
+      ACTIVE: expirationTime=945189345, windowSizeMs=600000, jobCountLimit=75, sessionCountLimit=75, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=0, rateLimitJobCountWindow=0, rateLimitSessionCountExpirationTime=0, rateLimitSessionCountWindow=0
+    <0>com.android.permissioncontroller
+      ACTIVE: expirationTime=941967269, windowSizeMs=600000, jobCountLimit=75, sessionCountLimit=75, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=19, bgJobCountInMaxPeriod=1, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=855627269, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=855627289, rateLimitSessionCountWindow=1
+      WORKING_SET: expirationTime=855567288, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=855627269, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=855627289, rateLimitSessionCountWindow=1
+      FREQUENT: expirationTime=855567288, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=855627269, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=855627289, rateLimitSessionCountWindow=1
+      RARE: expirationTime=855567288, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=855627269, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=855627289, rateLimitSessionCountWindow=1
+      NEVER: expirationTime=855567288, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=855627269, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=855627289, rateLimitSessionCountWindow=1
+      RESTRICTED: expirationTime=855567288, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=855627269, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=855627289, rateLimitSessionCountWindow=1
+  
+  EJ debits:
+    <0>com.android.providers.calendar: ShrinkableDebits { debit tally: 71, bucket: 0 }
+    <0>com.tencent.qqmusic: ShrinkableDebits { debit tally: 0, bucket: 0 }
+    <0>android: ShrinkableDebits { debit tally: 0, bucket: 0 }
+    <0>com.android.launcher3: ShrinkableDebits { debit tally: 0, bucket: 0 }
+    <0>com.android.settings.intelligence: ShrinkableDebits { debit tally: 0, bucket: 0 }
+    <0>com.android.settings: ShrinkableDebits { debit tally: 0, bucket: 0 }
+    <0>com.jingdong.app.mall: ShrinkableDebits { debit tally: 0, bucket: 0 }
+    <0>com.example.myfirstapp: ShrinkableDebits { debit tally: 0, bucket: 0 }
+    <0>com.android.shell: ShrinkableDebits { debit tally: 0, bucket: 0 }
+    <0>com.android.deskclock: ShrinkableDebits { debit tally: 0, bucket: 0 }
+    <0>com.android.systemui: ShrinkableDebits { debit tally: 0, bucket: 0 }
+    <0>com.datacollector: ShrinkableDebits { debit tally: 0, bucket: 0 }
+  
+  In quota alarms:
+    NOT WAITING
+
+ComponentController:
+  0-ComponentInfo{android/com.android.server.PruneInstantAppsJobService}: ServiceInfo{d2a655d com.android.server.PruneInstantAppsJobService}
+  0-ComponentInfo{android/com.android.server.ZramWriteback}: ServiceInfo{8ddaed2 com.android.server.ZramWriteback}
+  0-ComponentInfo{com.android.gallery3d/com.android.gallery3d.app.PackagesMonitor$AsyncService}: ServiceInfo{a139ba3 com.android.gallery3d.app.PackagesMonitor$AsyncService}
+  0-ComponentInfo{android/com.android.server.camera.CameraStatsJobService}: ServiceInfo{6d71ea0 com.android.server.camera.CameraStatsJobService}
+  0-ComponentInfo{com.android.providers.media.module/com.android.providers.media.IdleService}: ServiceInfo{4acfa59 com.android.providers.media.IdleService}
+  0-ComponentInfo{com.xunmeng.pinduoduo/com.xunmeng.pinduoduo.service.farseer.LifeCycleJobService}: ServiceInfo{bc3e61e com.xunmeng.pinduoduo.service.farseer.LifeCycleJobService}
+  0-ComponentInfo{com.android.providers.media.module/com.android.providers.media.MediaService}: ServiceInfo{bba4eff com.android.providers.media.MediaService}
+  0-ComponentInfo{com.android.networkstack/com.android.server.connectivity.ipmemorystore.RegularMaintenanceJobService}: ServiceInfo{a9f84cc com.android.server.connectivity.ipmemorystore.RegularMaintenanceJobService}
+  0-ComponentInfo{com.android.providers.settings/com.android.providers.settings.WriteFallbackSettingsFilesJobService}: ServiceInfo{229e315 com.android.providers.settings.WriteFallbackSettingsFilesJobService}
+  0-ComponentInfo{android/com.android.server.blob.BlobStoreIdleJobService}: ServiceInfo{644462a com.android.server.blob.BlobStoreIdleJobService}
+  0-ComponentInfo{com.android.messaging/com.android.messaging.datamodel.action.ActionServiceImpl}: ServiceInfo{6eedc1b com.android.messaging.datamodel.action.ActionServiceImpl}
+  0-ComponentInfo{com.android.providers.calendar/com.android.providers.calendar.CalendarProviderJobService}: ServiceInfo{2a621b8 com.android.providers.calendar.CalendarProviderJobService}
+  0-ComponentInfo{com.android.permissioncontroller/com.android.permissioncontroller.permission.service.LocationAccessCheck$LocationAccessCheckJobService}: ServiceInfo{b529b91 com.android.permissioncontroller.permission.service.LocationAccessCheck$LocationAccessCheckJobService}
+  0-ComponentInfo{com.android.settings/com.android.settings.fuelgauge.batterytip.AnomalyConfigJobService}: ServiceInfo{b89af6 com.android.settings.fuelgauge.batterytip.AnomalyConfigJobService}
+  0-ComponentInfo{com.tencent.mobileqq/com.tencent.mobileqq.msf.service.MSFAliveJobService}: ServiceInfo{e151ef7 com.tencent.mobileqq.msf.service.MSFAliveJobService}
+  0-ComponentInfo{com.android.dialer/com.android.dialer.calllog.config.CallLogConfigImpl$PollingJob}: ServiceInfo{877a164 com.android.dialer.calllog.config.CallLogConfigImpl$PollingJob}
+  0-ComponentInfo{android/com.android.server.backup.KeyValueBackupJob}: ServiceInfo{5745fcd com.android.server.backup.KeyValueBackupJob}
+  0-ComponentInfo{android/com.android.server.storage.DiskStatsLoggingService}: ServiceInfo{d4b7082 com.android.server.storage.DiskStatsLoggingService}
+  0-ComponentInfo{com.android.permissioncontroller/com.android.permissioncontroller.hibernation.HibernationJobService}: ServiceInfo{bf2b393 com.android.permissioncontroller.hibernation.HibernationJobService}
+  0-ComponentInfo{android/com.android.server.pm.DynamicCodeLoggingService}: ServiceInfo{fbf6fd0 com.android.server.pm.DynamicCodeLoggingService}
+  0-ComponentInfo{android/com.android.server.net.watchlist.ReportWatchlistJobService}: ServiceInfo{3742bc9 com.android.server.net.watchlist.ReportWatchlistJobService}
+  0-ComponentInfo{android/com.android.server.people.data.DataMaintenanceService}: ServiceInfo{44412ce com.android.server.people.data.DataMaintenanceService}
+  0-ComponentInfo{com.android.providers.downloads/com.android.providers.downloads.DownloadIdleService}: ServiceInfo{80af5ef com.android.providers.downloads.DownloadIdleService}
+  0-ComponentInfo{com.android.settings/com.android.settings.fuelgauge.batterytip.AnomalyCleanupJobService}: ServiceInfo{973b8fc com.android.settings.fuelgauge.batterytip.AnomalyCleanupJobService}
+  0-ComponentInfo{android/com.android.server.usage.UsageStatsIdleService}: ServiceInfo{78abb85 com.android.server.usage.UsageStatsIdleService}
+  0-ComponentInfo{android/com.android.server.content.SyncJobService}: ServiceInfo{9128dda com.android.server.content.SyncJobService}
+  0-ComponentInfo{com.android.imsserviceentitlement/com.android.imsserviceentitlement.fcm.FcmRegistrationService}: ServiceInfo{4bb020b com.android.imsserviceentitlement.fcm.FcmRegistrationService}
+  0-ComponentInfo{com.android.statementservice/androidx.work.impl.background.systemjob.SystemJobService}: ServiceInfo{dc168e8 androidx.work.impl.background.systemjob.SystemJobService}
+  0-ComponentInfo{android/com.android.server.display.BrightnessIdleJob}: ServiceInfo{4c08b01 com.android.server.display.BrightnessIdleJob}
+  0-ComponentInfo{android/com.android.server.pm.BackgroundDexOptService}: ServiceInfo{41bada6 com.android.server.pm.BackgroundDexOptService}
+  0-ComponentInfo{android/com.android.server.backup.FullBackupJob}: ServiceInfo{315b3e7 com.android.server.backup.FullBackupJob}
+  0-ComponentInfo{com.android.messaging/com.android.messaging.datamodel.action.BackgroundWorkerService}: ServiceInfo{8b82b94 com.android.messaging.datamodel.action.BackgroundWorkerService}
+  0-ComponentInfo{com.android.dialer/com.android.voicemail.impl.StatusCheckJobService}: ServiceInfo{c29d63d com.android.voicemail.impl.StatusCheckJobService}
+  0-ComponentInfo{android/com.android.server.MountServiceIdler}: ServiceInfo{d44fe32 com.android.server.MountServiceIdler}
+
+Uid priority overrides:
+  1000: 35
+  1001: 35
+  1027: 35
+  1068: 35
+  1073: 35
+  u0a61: 35
+  u0a83: 35
+  u0a84: 30
+  u0a88: 35
+  u0a89: 35
+  u0a90: 30
+  u0a93: 35
+
+Cached UID->package map:
+  1000: {com.android.dynsystem, android, com.android.providers.settings, com.android.inputdevices, com.android.server.telecom, com.android.keychain, com.android.localtransport, com.android.settings, com.example.myfirstapp, com.android.wallpaperbackup, com.android.location.fused}
+  1001: {com.android.providers.telephony, com.android.mms.service, com.android.ons, com.android.stk, com.qualcomm.qcrilmsgtunnel, com.android.phone}
+  1027: {com.android.nfc}
+  2000: {com.android.shell}
+  10026: {com.android.calllogbackup, com.android.providers.blockednumber, com.android.providers.userdictionary, com.android.providers.contacts}
+  10027: {com.android.packageinstaller}
+  10028: {com.android.providers.media, com.android.providers.downloads, com.android.providers.downloads.ui, com.android.mtp, com.android.soundpicker}
+  10031: {com.android.managedprovisioning}
+  10032: {com.android.providers.calendar}
+  10033: {com.android.externalstorage}
+  10037: {com.android.documentsui}
+  10040: {com.android.statementservice}
+  10041: {com.android.traceur}
+  10058: {com.android.carrierdefaultapp}
+  10061: {vendor.qti.hardware.cacert.server, vendor.qti.iwlan, com.qualcomm.qti.cne}
+  10062: {com.qualcomm.timeservice}
+  10063: {com.android.onetimeinitializer}
+  10064: {com.android.settings.intelligence}
+  10065: {com.android.imsserviceentitlement}
+  10066: {com.android.contacts}
+  10067: {com.android.dialer}
+  10070: {com.android.gallery3d}
+  10071: {com.android.camera2}
+  10072: {com.android.deskclock}
+  10074: {com.android.inputmethod.latin}
+  10076: {com.android.calendar}
+  10078: {com.android.quicksearchbox}
+  10079: {com.android.messaging}
+  10080: {com.android.webview}
+  10084: {com.android.launcher3}
+  10085: {com.android.emergency}
+  10088: {com.android.systemui}
+  10089: {com.qualcomm.qti.telephonyservice}
+  10093: {com.android.providers.media.module}
+  10096: {com.android.permissioncontroller}
+  10098: {com.android.cellbroadcastreceiver.module}
+  10099: {com.tencent.mm}
+  10100: {com.android.chrome}
+  10101: {com.tencent.mobileqq}
+  10102: {com.datacollector}
+  10106: {com.xunmeng.pinduoduo}
+  10108: {com.tencent.qqmusic}
+  10111: {com.jingdong.app.mall}
+
+Historical stats at 2022-07-18-18-02-36 (-3h55m36s201ms) over +30m0s154ms:
+  Max concurrency: 1 total, 0 foreground
+  
+  u0a101 / com.tencent.mobileqq:
+    2x pending 2x active 
+    2x successful_finish
+  u0a106 / com.xunmeng.pinduoduo:
+    3x pending 3x active 
+    3x canceled
+
+Historical stats at 2022-07-18-17-32-36 (-4h25m36s327ms) over +30m0s126ms:
+  Max concurrency: 2 total, 0 foreground
+  
+  u0a101 / com.tencent.mobileqq:
+    2x pending 2x active 
+    2x successful_finish
+  u0a106 / com.xunmeng.pinduoduo:
+    3x pending 3x active 
+    3x canceled
+
+Historical stats at 2022-07-18-17-02-36 (-4h55m36s431ms) over +30m0s104ms:
+  Max concurrency: 1 total, 0 foreground
+  
+  1000 / com.android.providers.settings:
+    1x pending 1x active 
+    1x canceled
+  u0a101 / com.tencent.mobileqq:
+    3x pending 3x active 
+    3x successful_finish
+  u0a106 / com.xunmeng.pinduoduo:
+    3x pending 3x active 
+    3x canceled
+
+Historical stats at 2022-07-18-16-32-36 (-5h25m36s490ms) over +30m0s60ms:
+  Max concurrency: 1 total, 0 foreground
+  
+  u0a101 / com.tencent.mobileqq:
+    2x pending 2x active 
+    2x successful_finish
+  u0a106 / com.xunmeng.pinduoduo:
+    3x pending 3x active 
+    3x canceled
+
+Current stats at 2022-07-18-18-32-36 (-3h25m36s47ms) over +54m13s862ms:
+  Max concurrency: 14 total, 0 foreground
+  
+  1000 / android:
+    6x pending 5% 4x active 
+    4x canceled, 15x successful_finish
+  1000 / com.android.providers.settings:
+    1x pending 1x active 
+    1x canceled
+  1000 / com.android.settings:
+    2x pending 2x active 
+    4x successful_finish
+  1073 / com.android.networkstack:
+    2x pending 2x active 
+    2x successful_finish
+  u0a28 / com.android.providers.downloads:
+    2x pending 2x active 
+    2x successful_finish
+  u0a32 / com.android.providers.calendar:
+    1x pending 1x active 
+    1x successful_finish
+  u0a67 / com.android.dialer:
+    2x pending 1x active 
+    1x canceled, 1x successful_finish
+  u0a93 / com.android.providers.media.module:
+    2x pending 2x active 
+    2x successful_finish
+  u0a101 / com.tencent.mobileqq:
+    14x pending 14x active 
+    14x successful_finish
+  u0a106 / com.xunmeng.pinduoduo:
+    16x pending 16x active 
+    16x canceled
+
+  Job history:
+     -3h17m44s856ms START-P: #1000/203142925 android/com.android.server.pm.DynamicCodeLoggingService
+     -3h17m44s855ms    STOP: #1000/2131427342 com.android.settings/.fuelgauge.batterytip.AnomalyConfigJobService app called jobFinished
+     -3h17m44s849ms    STOP: #1000/882313 android/com.android.server.net.watchlist.ReportWatchlistJobService app called jobFinished
+     -3h17m44s849ms    STOP: #1000/204561367 android/com.android.server.people.data.DataMaintenanceService app called jobFinished
+     -3h17m44s846ms START-P: #1000/3923512 android/com.android.server.display.BrightnessIdleJob
+     -3h17m44s845ms START-P: #1073/3345678 com.android.networkstack/com.android.server.connectivity.ipmemorystore.RegularMaintenanceJobService
+     -3h17m44s843ms START-P: #1000/2131427341 com.android.settings/.fuelgauge.batterytip.AnomalyCleanupJobService
+     -3h17m44s842ms START-P: #1000/2131427342 com.android.settings/.fuelgauge.batterytip.AnomalyConfigJobService
+     -3h17m44s841ms    STOP: #1000/3923512 android/com.android.server.display.BrightnessIdleJob onStartJob returned false
+     -3h17m44s838ms    STOP: #1073/3345678 com.android.networkstack/com.android.server.connectivity.ipmemorystore.RegularMaintenanceJobService app called jobFinished
+     -3h17m44s833ms    STOP: #1000/2131427341 com.android.settings/.fuelgauge.batterytip.AnomalyCleanupJobService app called jobFinished
+     -3h17m44s828ms    STOP: #1000/2131427342 com.android.settings/.fuelgauge.batterytip.AnomalyConfigJobService app called jobFinished
+     -3h17m44s826ms    STOP: #u0a28/-100 com.android.providers.downloads/.DownloadIdleService app called jobFinished
+     -3h17m44s822ms START-P: #u0a28/-100 com.android.providers.downloads/.DownloadIdleService
+     -3h17m44s795ms    STOP: #u0a28/-100 com.android.providers.downloads/.DownloadIdleService app called jobFinished
+     -3h17m44s756ms START-P: #u0a67/400 com.android.dialer/.calllog.config.CallLogConfigImpl$PollingJob
+     -3h17m44s750ms    STOP: #u0a67/400 com.android.dialer/.calllog.config.CallLogConfigImpl$PollingJob cancelled while waiting for bind
+     -3h17m44s741ms    STOP: #u0a67/400 com.android.dialer/.calllog.config.CallLogConfigImpl$PollingJob app called jobFinished
+     -3h17m44s613ms    STOP: #u0a93/-200 com.android.providers.media.module/com.android.providers.media.IdleService app called jobFinished
+     -3h17m44s499ms    STOP: #1000/1145656139 android/com.android.server.storage.DiskStatsLoggingService app called jobFinished
+     -3h17m44s498ms    STOP: #1000/191934935 android/com.android.server.blob.BlobStoreIdleJobService app called jobFinished
+     -3h17m44s497ms    STOP: #1000/765123 android/com.android.server.PruneInstantAppsJobService app called jobFinished
+     -3h17m44s494ms START-P: #u0a93/-200 com.android.providers.media.module/com.android.providers.media.IdleService
+     -3h17m44s491ms START-P: #1000/1145656139 android/com.android.server.storage.DiskStatsLoggingService
+     -3h17m44s490ms START-P: #1000/191934935 android/com.android.server.blob.BlobStoreIdleJobService
+     -3h17m44s291ms    STOP: #u0a93/-200 com.android.providers.media.module/com.android.providers.media.IdleService app called jobFinished
+     -3h17m44s246ms    STOP: #1000/1145656139 android/com.android.server.storage.DiskStatsLoggingService app called jobFinished
+     -3h17m44s245ms    STOP: #1000/191934935 android/com.android.server.blob.BlobStoreIdleJobService app called jobFinished
+     -3h17m43s839ms    STOP: #1000/2030028 android/com.android.server.pm.DynamicCodeLoggingService app called jobFinished
+     -3h17m43s174ms    STOP: #1000/203142925 android/com.android.server.pm.DynamicCodeLoggingService app called jobFinished
+     -3h17m25s738ms    STOP: #1000/800 android/com.android.server.pm.BackgroundDexOptService app called jobFinished
+     -3h15m36s024ms START-P: #1000/2030028 android/com.android.server.pm.DynamicCodeLoggingService
+     -3h15m36s023ms START-P: #1000/203142925 android/com.android.server.pm.DynamicCodeLoggingService
+     -3h15m36s021ms START-P: #1000/800 android/com.android.server.pm.BackgroundDexOptService
+     -3h15m36s015ms START-P: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+     -3h15m36s011ms    STOP: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService onStartJob returned false
+     -3h15m34s994ms    STOP: #1000/203142925 android/com.android.server.pm.DynamicCodeLoggingService app called jobFinished
+     -3h15m34s688ms    STOP: #1000/2030028 android/com.android.server.pm.DynamicCodeLoggingService app called jobFinished
+     -3h15m23s071ms    STOP: #1000/800 android/com.android.server.pm.BackgroundDexOptService app called jobFinished
+     -3h14m54s713ms  STOP-P: #1000/808 android/com.android.server.MountServiceIdler app called jobFinished
+     -3h06m10s575ms START-P: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService
+     -3h06m10s473ms    STOP: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService app called jobFinished
+     -2h59m10s584ms START-P: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+     -2h59m10s575ms    STOP: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService onStartJob returned false
+     -2h50m55s523ms START-P: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService
+     -2h50m55s512ms    STOP: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService app called jobFinished
+     -2h44m10s578ms START-P: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+     -2h44m10s559ms    STOP: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService onStartJob returned false
+     -2h34m39s576ms START-P: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService
+     -2h34m39s554ms    STOP: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService app called jobFinished
+     -2h27m14s589ms START-P: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+     -2h27m14s582ms    STOP: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService onStartJob returned false
+     -2h20m24s588ms START-P: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService
+     -2h20m24s571ms    STOP: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService app called jobFinished
+     -2h14m10s581ms START-P: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+     -2h14m10s543ms    STOP: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService onStartJob returned false
+     -2h06m11s605ms START-P: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService
+     -2h06m11s558ms    STOP: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService app called jobFinished
+     -1h59m10s607ms START-P: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+     -1h59m10s598ms    STOP: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService onStartJob returned false
+     -1h50m57s574ms START-P: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService
+     -1h50m57s558ms    STOP: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService app called jobFinished
+     -1h44m10s606ms START-P: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+     -1h44m10s601ms    STOP: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService onStartJob returned false
+     -1h34m41s638ms START-P: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService
+     -1h34m41s612ms    STOP: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService app called jobFinished
+     -1h32m21s621ms   START: #1000/13254266 android/com.android.server.camera.CameraStatsJobService
+     -1h32m21s618ms   START: #1000/812 android/com.android.server.ZramWriteback
+     -1h32m21s601ms  STOP-P: #1000/13254266 android/com.android.server.camera.CameraStatsJobService onStartJob returned false
+     -1h32m16s193ms  STOP-P: #1000/812 android/com.android.server.ZramWriteback canceled
+     -1h29m10s612ms START-P: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+     -1h29m10s580ms    STOP: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService onStartJob returned false
+     -1h21m28s620ms START-P: #1000/203142925 android/com.android.server.pm.DynamicCodeLoggingService
+     -1h21m28s618ms START-P: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService
+     -1h21m28s597ms    STOP: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService app called jobFinished
+     -1h21m27s675ms    STOP: #1000/203142925 android/com.android.server.pm.DynamicCodeLoggingService app called jobFinished
+     -1h14m10s604ms START-P: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+     -1h14m10s589ms    STOP: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService onStartJob returned false
+     -1h05m15s645ms START-P: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService
+     -1h05m15s626ms    STOP: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService app called jobFinished
+       -59m10s654ms START-P: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+       -59m10s651ms    STOP: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService onStartJob returned false
+       -50m02s632ms START-P: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService
+       -50m02s616ms    STOP: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService app called jobFinished
+       -44m10s663ms START-P: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+       -44m10s657ms    STOP: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService onStartJob returned false
+       -36m15s635ms START-P: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService
+       -36m15s621ms    STOP: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService app called jobFinished
+       -34m13s787ms START-P: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+       -34m13s785ms    STOP: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService onStartJob returned false
+       -24m13s761ms START-P: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+       -24m13s757ms    STOP: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService onStartJob returned false
+       -22m28s750ms START-P: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService
+       -22m28s731ms    STOP: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService app called jobFinished
+       -14m13s737ms START-P: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+       -14m13s732ms    STOP: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService onStartJob returned false
+        -7m01s206ms START-P: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService
+        -7m01s192ms    STOP: #u0a101/1 com.tencent.mobileqq/.msf.service.MSFAliveJobService app called jobFinished
+        -4m13s707ms START-P: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+        -4m13s704ms    STOP: #u0a106/3 com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService onStartJob returned false
+
+Pending queue:
+  None
+
+Active jobs:
+  Slot #0: inactive since -4m13s668ms, stopped because: onStartJob returned false
+  Slot #1: inactive since -1h21m28s561ms, stopped because: app called jobFinished
+  Slot #2: inactive since -3h15m23s35ms, stopped because: app called jobFinished
+  Slot #3: inactive since -3h15m35s975ms, stopped because: onStartJob returned false
+  Slot #4: inactive since -3h17m44s577ms, stopped because: app called jobFinished
+  Slot #5: inactive since -3h17m44s790ms, stopped because: app called jobFinished
+  Slot #6: inactive since -3h17m43s803ms, stopped because: app called jobFinished
+  Slot #7: inactive since -3h17m25s702ms, stopped because: app called jobFinished
+  Slot #8: inactive since -3h14m54s677ms, stopped because: app called jobFinished
+  Slot #9: inactive since -3h17m44s461ms, stopped because: app called jobFinished
+  Slot #10: inactive since -3h17m44s802ms, stopped because: app called jobFinished
+  Slot #11: inactive since -3h17m44s797ms, stopped because: app called jobFinished
+  Slot #12: inactive since -3h17m43s138ms, stopped because: app called jobFinished
+  Slot #13: inactive since -3h17m44s792ms, stopped because: app called jobFinished
+  Slot #14: inactive since -10d1h15m50s286ms, stopped because: app called jobFinished
+  Slot #15: inactive since -10d1h15m50s228ms, stopped because: app called jobFinished
+
+Recently completed jobs:
+  -4m13s664ms
+      u0a106 tag=*job*/com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+      Source: uid=u0a106 user=0 pkg=com.xunmeng.pinduoduo
+      JobInfo:
+        Service: com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+        PERIODIC: interval=+15m0s0ms flex=+15m0s0ms
+        PERSISTED
+        Requires: charging=false batteryNotLow=false deviceIdle=false
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+        Has late constraint
+      Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+      Dynamic constraints:
+      Satisfied constraints: TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Unsatisfied constraints: DEADLINE [0x40000000]
+      Constraint history:
+        -4m13s682ms = TIMING_DELAY [0x80000000]
+        -4m13s682ms = TIMING_DELAY BACKGROUND_NOT_RESTRICTED [0x80400000]
+        -4m13s682ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x82400000]
+        -4m13s682ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Implicit constraints:
+        readyNotDozing: true
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Standby bucket: ACTIVE
+      Enqueue time: -4m13s682ms
+      Run time: earliest=-4m13s682ms, latest=+10m46s318ms, original latest=+10m46s318ms
+  -7m1s154ms
+      u0a101 tag=*job*/com.tencent.mobileqq/.msf.service.MSFAliveJobService
+      Source: uid=u0a101 user=0 pkg=com.tencent.mobileqq
+      JobInfo:
+        Service: com.tencent.mobileqq/.msf.service.MSFAliveJobService
+        PERIODIC: interval=+15m0s0ms flex=+15m0s0ms
+        PERSISTED
+        Requires: charging=false batteryNotLow=false deviceIdle=false
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+        Has late constraint
+      Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+      Dynamic constraints:
+      Satisfied constraints: TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Unsatisfied constraints: DEADLINE [0x40000000]
+      Constraint history:
+        -22m28s692ms = BACKGROUND_NOT_RESTRICTED [0x400000]
+        -22m28s692ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400000]
+        -22m28s692ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+        -7m1s183ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Implicit constraints:
+        readyNotDozing: true
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Standby bucket: ACTIVE
+      Enqueue time: -22m28s692ms
+      Run time: earliest=-7m41s455ms, latest=+7m18s545ms, original latest=+7m18s545ms
+      Last successful run: 2022-07-18 21:35:44
+  -14m13s694ms
+      u0a106 tag=*job*/com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+      Source: uid=u0a106 user=0 pkg=com.xunmeng.pinduoduo
+      JobInfo:
+        Service: com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+        PERIODIC: interval=+15m0s0ms flex=+15m0s0ms
+        PERSISTED
+        Requires: charging=false batteryNotLow=false deviceIdle=false
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+        Has late constraint
+      Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+      Dynamic constraints:
+      Satisfied constraints: TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Unsatisfied constraints: DEADLINE [0x40000000]
+      Constraint history:
+        -14m13s710ms = TIMING_DELAY [0x80000000]
+        -14m13s710ms = TIMING_DELAY BACKGROUND_NOT_RESTRICTED [0x80400000]
+        -14m13s710ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x82400000]
+        -14m13s710ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Implicit constraints:
+        readyNotDozing: true
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Standby bucket: ACTIVE
+      Enqueue time: -14m13s710ms
+      Run time: earliest=-14m13s710ms, latest=+46s290ms, original latest=+46s290ms
+  -22m28s693ms
+      u0a101 tag=*job*/com.tencent.mobileqq/.msf.service.MSFAliveJobService
+      Source: uid=u0a101 user=0 pkg=com.tencent.mobileqq
+      JobInfo:
+        Service: com.tencent.mobileqq/.msf.service.MSFAliveJobService
+        PERIODIC: interval=+15m0s0ms flex=+15m0s0ms
+        PERSISTED
+        Requires: charging=false batteryNotLow=false deviceIdle=false
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+        Has late constraint
+      Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+      Dynamic constraints:
+      Satisfied constraints: TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Unsatisfied constraints: DEADLINE [0x40000000]
+      Constraint history:
+        -36m15s583ms = BACKGROUND_NOT_RESTRICTED [0x400000]
+        -36m15s583ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400000]
+        -36m15s583ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+        -22m28s724ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Implicit constraints:
+        readyNotDozing: true
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Standby bucket: ACTIVE
+      Enqueue time: -36m15s583ms
+      Run time: earliest=-22m41s455ms, latest=-7m41s455ms, original latest=-7m41s455ms
+      Last successful run: 2022-07-18 21:21:57
+  -24m13s718ms
+      u0a106 tag=*job*/com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+      Source: uid=u0a106 user=0 pkg=com.xunmeng.pinduoduo
+      JobInfo:
+        Service: com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+        PERIODIC: interval=+15m0s0ms flex=+15m0s0ms
+        PERSISTED
+        Requires: charging=false batteryNotLow=false deviceIdle=false
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+        Has late constraint
+      Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+      Dynamic constraints:
+      Satisfied constraints: TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Unsatisfied constraints: DEADLINE [0x40000000]
+      Constraint history:
+        -24m13s732ms = TIMING_DELAY [0x80000000]
+        -24m13s732ms = TIMING_DELAY BACKGROUND_NOT_RESTRICTED [0x80400000]
+        -24m13s732ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x82400000]
+        -24m13s732ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Implicit constraints:
+        readyNotDozing: true
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Standby bucket: ACTIVE
+      Enqueue time: -24m13s732ms
+      Run time: earliest=-24m13s733ms, latest=-9m13s733ms, original latest=-9m13s733ms
+  -34m13s747ms
+      u0a106 tag=*job*/com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+      Source: uid=u0a106 user=0 pkg=com.xunmeng.pinduoduo
+      JobInfo:
+        Service: com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+        PERIODIC: interval=+15m0s0ms flex=+15m0s0ms
+        PERSISTED
+        Requires: charging=false batteryNotLow=false deviceIdle=false
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+        Has late constraint
+      Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+      Dynamic constraints:
+      Satisfied constraints: TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Unsatisfied constraints: DEADLINE [0x40000000]
+      Constraint history:
+        -34m13s759ms = TIMING_DELAY [0x80000000]
+        -34m13s759ms = TIMING_DELAY BACKGROUND_NOT_RESTRICTED [0x80400000]
+        -34m13s759ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x82400000]
+        -34m13s759ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Implicit constraints:
+        readyNotDozing: true
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Standby bucket: ACTIVE
+      Enqueue time: -34m13s759ms
+      Run time: earliest=-34m13s759ms, latest=-19m13s759ms, original latest=-19m13s759ms
+  -36m15s584ms
+      u0a101 tag=*job*/com.tencent.mobileqq/.msf.service.MSFAliveJobService
+      Source: uid=u0a101 user=0 pkg=com.tencent.mobileqq
+      JobInfo:
+        Service: com.tencent.mobileqq/.msf.service.MSFAliveJobService
+        PERIODIC: interval=+15m0s0ms flex=+15m0s0ms
+        PERSISTED
+        Requires: charging=false batteryNotLow=false deviceIdle=false
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+        Has late constraint
+      Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+      Dynamic constraints:
+      Satisfied constraints: TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Unsatisfied constraints: DEADLINE [0x40000000]
+      Constraint history:
+        -50m2s577ms = BACKGROUND_NOT_RESTRICTED [0x400000]
+        -50m2s577ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400000]
+        -50m2s577ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+        -36m15s604ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Implicit constraints:
+        readyNotDozing: true
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Standby bucket: ACTIVE
+      Enqueue time: -50m2s577ms
+      Run time: earliest=-37m41s455ms, latest=-22m41s455ms, original latest=-22m41s455ms
+      Last successful run: 2022-07-18 21:08:10
+  -44m10s618ms
+      u0a106 tag=*job*/com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+      Source: uid=u0a106 user=0 pkg=com.xunmeng.pinduoduo
+      JobInfo:
+        Service: com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+        PERIODIC: interval=+15m0s0ms flex=+15m0s0ms
+        PERSISTED
+        Requires: charging=false batteryNotLow=false deviceIdle=false
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+        Has late constraint
+      Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+      Dynamic constraints:
+      Satisfied constraints: TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Unsatisfied constraints: DEADLINE [0x40000000]
+      Constraint history:
+        -59m10s613ms = BACKGROUND_NOT_RESTRICTED [0x400000]
+        -59m10s613ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400000]
+        -59m10s613ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+        -44m10s630ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Implicit constraints:
+        readyNotDozing: true
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Standby bucket: ACTIVE
+      Enqueue time: -59m10s613ms
+      Run time: earliest=-45m35s985ms, latest=-30m35s985ms, original latest=-30m35s985ms
+      Last successful run: 2022-07-18 20:59:02
+  -50m2s578ms
+      u0a101 tag=*job*/com.tencent.mobileqq/.msf.service.MSFAliveJobService
+      Source: uid=u0a101 user=0 pkg=com.tencent.mobileqq
+      JobInfo:
+        Service: com.tencent.mobileqq/.msf.service.MSFAliveJobService
+        PERIODIC: interval=+15m0s0ms flex=+15m0s0ms
+        PERSISTED
+        Requires: charging=false batteryNotLow=false deviceIdle=false
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+        Has late constraint
+      Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+      Dynamic constraints:
+      Satisfied constraints: TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Unsatisfied constraints: DEADLINE [0x40000000]
+      Constraint history:
+        -1h5m15s587ms = BACKGROUND_NOT_RESTRICTED [0x400000]
+        -1h5m15s587ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400000]
+        -1h5m15s587ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+        -50m2s603ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Implicit constraints:
+        readyNotDozing: true
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Standby bucket: ACTIVE
+      Enqueue time: -1h5m15s587ms
+      Run time: earliest=-52m41s455ms, latest=-37m41s455ms, original latest=-37m41s455ms
+      Last successful run: 2022-07-18 20:52:57
+  -59m10s614ms
+      u0a106 tag=*job*/com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+      Source: uid=u0a106 user=0 pkg=com.xunmeng.pinduoduo
+      JobInfo:
+        Service: com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+        PERIODIC: interval=+15m0s0ms flex=+15m0s0ms
+        PERSISTED
+        Requires: charging=false batteryNotLow=false deviceIdle=false
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+        Has late constraint
+      Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+      Dynamic constraints:
+      Satisfied constraints: TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Unsatisfied constraints: DEADLINE [0x40000000]
+      Constraint history:
+        -1h14m10s550ms = BACKGROUND_NOT_RESTRICTED [0x400000]
+        -1h14m10s550ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400000]
+        -1h14m10s550ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+        -59m10s660ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Implicit constraints:
+        readyNotDozing: true
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Standby bucket: ACTIVE
+      Enqueue time: -1h14m10s550ms
+      Run time: earliest=-1h0m35s985ms, latest=-45m35s985ms, original latest=-45m35s985ms
+      Last successful run: 2022-07-18 20:44:02
+  -1h5m15s588ms
+      u0a101 tag=*job*/com.tencent.mobileqq/.msf.service.MSFAliveJobService
+      Source: uid=u0a101 user=0 pkg=com.tencent.mobileqq
+      JobInfo:
+        Service: com.tencent.mobileqq/.msf.service.MSFAliveJobService
+        PERIODIC: interval=+15m0s0ms flex=+15m0s0ms
+        PERSISTED
+        Requires: charging=false batteryNotLow=false deviceIdle=false
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+        Has late constraint
+      Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+      Dynamic constraints:
+      Satisfied constraints: TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Unsatisfied constraints: DEADLINE [0x40000000]
+      Constraint history:
+        -1h21m28s558ms = BACKGROUND_NOT_RESTRICTED [0x400000]
+        -1h21m28s558ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400000]
+        -1h21m28s558ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+        -1h5m15s670ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Implicit constraints:
+        readyNotDozing: true
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Standby bucket: ACTIVE
+      Enqueue time: -1h21m28s558ms
+      Run time: earliest=-1h7m41s455ms, latest=-52m41s455ms, original latest=-52m41s455ms
+      Last successful run: 2022-07-18 20:36:44
+  -1h14m10s551ms
+      u0a106 tag=*job*/com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+      Source: uid=u0a106 user=0 pkg=com.xunmeng.pinduoduo
+      JobInfo:
+        Service: com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+        PERIODIC: interval=+15m0s0ms flex=+15m0s0ms
+        PERSISTED
+        Requires: charging=false batteryNotLow=false deviceIdle=false
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+        Has late constraint
+      Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+      Dynamic constraints:
+      Satisfied constraints: TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Unsatisfied constraints: DEADLINE [0x40000000]
+      Constraint history:
+        -1h29m10s541ms = BACKGROUND_NOT_RESTRICTED [0x400000]
+        -1h29m10s541ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400000]
+        -1h29m10s541ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+        -1h14m10s576ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Implicit constraints:
+        readyNotDozing: true
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Standby bucket: ACTIVE
+      Enqueue time: -1h29m10s541ms
+      Run time: earliest=-1h15m35s985ms, latest=-1h0m35s985ms, original latest=-1h0m35s985ms
+      Last successful run: 2022-07-18 20:29:02
+  -1h21m27s637ms
+      1000 tag=*job*/android/com.android.server.pm.DynamicCodeLoggingService
+      Source: uid=1000 user=0 pkg=android
+      JobInfo:
+        Service: android/com.android.server.pm.DynamicCodeLoggingService
+        PERIODIC: interval=+2h0m0s0ms flex=+2h0m0s0ms
+        Requires: charging=false batteryNotLow=true deviceIdle=true
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+        Has late constraint
+      Required constraints: BATTERY_NOT_LOW TIMING_DELAY DEADLINE IDLE [0xc0000006]
+      Dynamic constraints:
+      Satisfied constraints: BATTERY_NOT_LOW TIMING_DELAY IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400006]
+      Unsatisfied constraints: DEADLINE [0x40000000]
+      Constraint history:
+        -3h15m34s956ms = CHARGING BATTERY_NOT_LOW IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400007]
+        -3h15m34s956ms = CHARGING BATTERY_NOT_LOW IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400007]
+        -3h13m58s233ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+        -3h13m58s13ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+        -3h13m36s616ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+        -3h12m14s790ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+        -3h10m45s953ms = CHARGING BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400003]
+        -3h10m40s389ms = BATTERY_NOT_LOW DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400002]
+        -2h34m31s559ms = BATTERY_NOT_LOW IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400006]
+        -1h21m28s651ms = BATTERY_NOT_LOW TIMING_DELAY IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400006]
+      Uid: active
+      Implicit constraints:
+        readyNotDozing: true
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Standby bucket: ACTIVE
+      Enqueue time: -3h15m34s956ms
+      Run time: earliest=-1h25m42s324ms, latest=+34m17s676ms, original latest=+34m17s676ms
+      Last successful run: 2022-07-18 18:42:37
+      Last failed run: 2022-07-16 12:40:05
+  -1h21m28s559ms
+      u0a101 tag=*job*/com.tencent.mobileqq/.msf.service.MSFAliveJobService
+      Source: uid=u0a101 user=0 pkg=com.tencent.mobileqq
+      JobInfo:
+        Service: com.tencent.mobileqq/.msf.service.MSFAliveJobService
+        PERIODIC: interval=+15m0s0ms flex=+15m0s0ms
+        PERSISTED
+        Requires: charging=false batteryNotLow=false deviceIdle=false
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+        Has late constraint
+      Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+      Dynamic constraints:
+      Satisfied constraints: TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Unsatisfied constraints: DEADLINE [0x40000000]
+      Constraint history:
+        -1h34m41s573ms = BACKGROUND_NOT_RESTRICTED [0x400000]
+        -1h34m41s573ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400000]
+        -1h34m41s572ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+        -1h21m28s651ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Implicit constraints:
+        readyNotDozing: true
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Standby bucket: ACTIVE
+      Enqueue time: -1h34m41s573ms
+      Run time: earliest=-1h22m41s455ms, latest=-1h7m41s455ms, original latest=-1h7m41s455ms
+      Last successful run: 2022-07-18 20:23:31
+  -1h29m10s542ms
+      u0a106 tag=*job*/com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+      Source: uid=u0a106 user=0 pkg=com.xunmeng.pinduoduo
+      JobInfo:
+        Service: com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+        PERIODIC: interval=+15m0s0ms flex=+15m0s0ms
+        PERSISTED
+        Requires: charging=false batteryNotLow=false deviceIdle=false
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+        Has late constraint
+      Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+      Dynamic constraints:
+      Satisfied constraints: TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Unsatisfied constraints: DEADLINE [0x40000000]
+      Constraint history:
+        -1h44m10s564ms = BACKGROUND_NOT_RESTRICTED [0x400000]
+        -1h44m10s564ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400000]
+        -1h44m10s564ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+        -1h29m10s642ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Implicit constraints:
+        readyNotDozing: true
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Standby bucket: ACTIVE
+      Enqueue time: -1h44m10s564ms
+      Run time: earliest=-1h30m35s985ms, latest=-1h15m35s985ms, original latest=-1h15m35s985ms
+      Last successful run: 2022-07-18 20:14:02
+  -1h32m16s156ms
+      1000 tag=*job*/android/com.android.server.ZramWriteback
+      Source: uid=1000 user=0 pkg=android
+      JobInfo:
+        Service: android/com.android.server.ZramWriteback
+        Requires: charging=false batteryNotLow=false deviceIdle=true
+        Minimum latency: +1d0h0m0s0ms
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+      Required constraints: TIMING_DELAY IDLE [0x80000004]
+      Dynamic constraints:
+      Satisfied constraints: TIMING_DELAY IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400004]
+      Unsatisfied constraints:
+      Constraint history:
+        -1d1h33m38s483ms = IDLE [0x4]
+        -1d1h33m38s483ms = IDLE BACKGROUND_NOT_RESTRICTED [0x400004]
+        -1d1h33m38s483ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400004]
+        -1d1h33m38s483ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+        -5h0m26s399ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+        -3h17m44s889ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+        -3h13m58s233ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+        -2h34m31s559ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+        -1h32m21s604ms = TIMING_DELAY IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400004]
+      Uid: active
+      Implicit constraints:
+        readyNotDozing: true
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Standby bucket: ACTIVE
+      Enqueue time: -1d1h33m38s483ms
+      Run time: earliest=-1h33m38s483ms, latest=none, original latest=none
+  -1h32m21s564ms
+      1000 tag=*job*/android/com.android.server.camera.CameraStatsJobService
+      Source: uid=1000 user=0 pkg=android
+      JobInfo:
+        Service: android/com.android.server.camera.CameraStatsJobService
+        Requires: charging=false batteryNotLow=false deviceIdle=true
+        Minimum latency: +1d0h0m0s0ms
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+      Required constraints: TIMING_DELAY IDLE [0x80000004]
+      Dynamic constraints:
+      Satisfied constraints: TIMING_DELAY IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400004]
+      Unsatisfied constraints:
+      Constraint history:
+        -1d1h33m39s376ms = IDLE [0x4]
+        -1d1h33m39s376ms = IDLE BACKGROUND_NOT_RESTRICTED [0x400004]
+        -1d1h33m39s376ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400004]
+        -1d1h33m39s376ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+        -5h0m26s399ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+        -3h17m44s889ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+        -3h13m58s233ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+        -2h34m31s559ms = IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400004]
+        -1h32m21s604ms = TIMING_DELAY IDLE DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400004]
+      Uid: active
+      Implicit constraints:
+        readyNotDozing: true
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Standby bucket: ACTIVE
+      Enqueue time: -1d1h33m39s376ms
+      Run time: earliest=-1h33m39s376ms, latest=none, original latest=none
+  -1h34m41s574ms
+      u0a101 tag=*job*/com.tencent.mobileqq/.msf.service.MSFAliveJobService
+      Source: uid=u0a101 user=0 pkg=com.tencent.mobileqq
+      JobInfo:
+        Service: com.tencent.mobileqq/.msf.service.MSFAliveJobService
+        PERIODIC: interval=+15m0s0ms flex=+15m0s0ms
+        PERSISTED
+        Requires: charging=false batteryNotLow=false deviceIdle=false
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+        Has late constraint
+      Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+      Dynamic constraints:
+      Satisfied constraints: TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Unsatisfied constraints: DEADLINE [0x40000000]
+      Constraint history:
+        -1h50m57s520ms = BACKGROUND_NOT_RESTRICTED [0x400000]
+        -1h50m57s520ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400000]
+        -1h50m57s520ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+        -1h34m41s657ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Implicit constraints:
+        readyNotDozing: true
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Standby bucket: ACTIVE
+      Enqueue time: -1h50m57s520ms
+      Run time: earliest=-1h37m41s455ms, latest=-1h22m41s455ms, original latest=-1h22m41s455ms
+      Last successful run: 2022-07-18 20:07:15
+  -1h44m10s565ms
+      u0a106 tag=*job*/com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+      Source: uid=u0a106 user=0 pkg=com.xunmeng.pinduoduo
+      JobInfo:
+        Service: com.xunmeng.pinduoduo/.service.farseer.LifeCycleJobService
+        PERIODIC: interval=+15m0s0ms flex=+15m0s0ms
+        PERSISTED
+        Requires: charging=false batteryNotLow=false deviceIdle=false
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+        Has late constraint
+      Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+      Dynamic constraints:
+      Satisfied constraints: TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Unsatisfied constraints: DEADLINE [0x40000000]
+      Constraint history:
+        -1h59m10s559ms = BACKGROUND_NOT_RESTRICTED [0x400000]
+        -1h59m10s559ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400000]
+        -1h59m10s559ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+        -1h44m10s575ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Implicit constraints:
+        readyNotDozing: true
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Standby bucket: ACTIVE
+      Enqueue time: -1h59m10s559ms
+      Run time: earliest=-1h45m35s985ms, latest=-1h30m35s985ms, original latest=-1h30m35s985ms
+      Last successful run: 2022-07-18 19:59:02
+  -1h50m57s520ms
+      u0a101 tag=*job*/com.tencent.mobileqq/.msf.service.MSFAliveJobService
+      Source: uid=u0a101 user=0 pkg=com.tencent.mobileqq
+      JobInfo:
+        Service: com.tencent.mobileqq/.msf.service.MSFAliveJobService
+        PERIODIC: interval=+15m0s0ms flex=+15m0s0ms
+        PERSISTED
+        Requires: charging=false batteryNotLow=false deviceIdle=false
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+        Has late constraint
+      Required constraints: TIMING_DELAY DEADLINE [0xc0000000]
+      Dynamic constraints:
+      Satisfied constraints: TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Unsatisfied constraints: DEADLINE [0x40000000]
+      Constraint history:
+        -2h6m11s521ms = BACKGROUND_NOT_RESTRICTED [0x400000]
+        -2h6m11s521ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2400000]
+        -2h6m11s521ms = DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3400000]
+        -1h50m57s579ms = TIMING_DELAY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83400000]
+      Implicit constraints:
+        readyNotDozing: true
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Standby bucket: ACTIVE
+      Enqueue time: -2h6m11s521ms
+      Run time: earliest=-1h52m41s455ms, latest=-1h37m41s455ms, original latest=-1h37m41s455ms
+      Last successful run: 2022-07-18 19:52:01
+
+
+mReadyToRock=true
+mReportedActive=false
+
+Concurrency:
+  Configuration:
+    concurrency_screen_off_adjustment_delay_ms=30000 
+    concurrency_pkg_concurrency_limit_ej=3 
+    concurrency_pkg_concurrency_limit_regular=8 
+    
+    concurrency_max_total_screen_on_normal=11 
+    concurrency_min_top_screen_on_normal=4 
+    concurrency_max_top_screen_on_normal=11 
+    concurrency_min_fgs_screen_on_normal=1 
+    concurrency_max_fgs_screen_on_normal=11 
+    concurrency_min_ej_screen_on_normal=3 
+    concurrency_max_ej_screen_on_normal=11 
+    concurrency_min_bg_screen_on_normal=2 
+    concurrency_max_bg_screen_on_normal=6 
+    concurrency_min_bguser_screen_on_normal=1 
+    concurrency_max_bguser_screen_on_normal=2 
+    concurrency_min_bguser_screen_on_normal=0 
+    concurrency_max_bguser_screen_on_normal=3 
+    
+    concurrency_max_total_screen_on_moderate=9 
+    concurrency_min_top_screen_on_moderate=4 
+    concurrency_max_top_screen_on_moderate=9 
+    concurrency_min_fgs_screen_on_moderate=1 
+    concurrency_max_fgs_screen_on_moderate=9 
+    concurrency_min_ej_screen_on_moderate=2 
+    concurrency_max_ej_screen_on_moderate=9 
+    concurrency_min_bg_screen_on_moderate=1 
+    concurrency_max_bg_screen_on_moderate=4 
+    concurrency_min_bguser_screen_on_moderate=1 
+    concurrency_max_bguser_screen_on_moderate=1 
+    concurrency_min_bguser_screen_on_moderate=0 
+    concurrency_max_bguser_screen_on_moderate=1 
+    
+    concurrency_max_total_screen_on_low=6 
+    concurrency_min_top_screen_on_low=4 
+    concurrency_max_top_screen_on_low=6 
+    concurrency_min_fgs_screen_on_low=1 
+    concurrency_max_fgs_screen_on_low=6 
+    concurrency_min_ej_screen_on_low=1 
+    concurrency_max_ej_screen_on_low=6 
+    concurrency_min_bg_screen_on_low=0 
+    concurrency_max_bg_screen_on_low=2 
+    concurrency_min_bguser_screen_on_low=0 
+    concurrency_max_bguser_screen_on_low=1 
+    concurrency_min_bguser_screen_on_low=0 
+    concurrency_max_bguser_screen_on_low=1 
+    
+    concurrency_max_total_screen_on_critical=6 
+    concurrency_min_top_screen_on_critical=4 
+    concurrency_max_top_screen_on_critical=6 
+    concurrency_min_fgs_screen_on_critical=1 
+    concurrency_max_fgs_screen_on_critical=6 
+    concurrency_min_ej_screen_on_critical=1 
+    concurrency_max_ej_screen_on_critical=6 
+    concurrency_min_bg_screen_on_critical=0 
+    concurrency_max_bg_screen_on_critical=1 
+    concurrency_min_bguser_screen_on_critical=0 
+    concurrency_max_bguser_screen_on_critical=1 
+    concurrency_min_bguser_screen_on_critical=0 
+    concurrency_max_bguser_screen_on_critical=1 
+    
+    concurrency_max_total_screen_off_normal=16 
+    concurrency_min_top_screen_off_normal=4 
+    concurrency_max_top_screen_off_normal=16 
+    concurrency_min_fgs_screen_off_normal=2 
+    concurrency_max_fgs_screen_off_normal=16 
+    concurrency_min_ej_screen_off_normal=3 
+    concurrency_max_ej_screen_off_normal=16 
+    concurrency_min_bg_screen_off_normal=2 
+    concurrency_max_bg_screen_off_normal=10 
+    concurrency_min_bguser_screen_off_normal=1 
+    concurrency_max_bguser_screen_off_normal=2 
+    concurrency_min_bguser_screen_off_normal=0 
+    concurrency_max_bguser_screen_off_normal=3 
+    
+    concurrency_max_total_screen_off_moderate=14 
+    concurrency_min_top_screen_off_moderate=4 
+    concurrency_max_top_screen_off_moderate=14 
+    concurrency_min_fgs_screen_off_moderate=2 
+    concurrency_max_fgs_screen_off_moderate=14 
+    concurrency_min_ej_screen_off_moderate=3 
+    concurrency_max_ej_screen_off_moderate=14 
+    concurrency_min_bg_screen_off_moderate=2 
+    concurrency_max_bg_screen_off_moderate=7 
+    concurrency_min_bguser_screen_off_moderate=1 
+    concurrency_max_bguser_screen_off_moderate=1 
+    concurrency_min_bguser_screen_off_moderate=0 
+    concurrency_max_bguser_screen_off_moderate=1 
+    
+    concurrency_max_total_screen_off_low=9 
+    concurrency_min_top_screen_off_low=4 
+    concurrency_max_top_screen_off_low=9 
+    concurrency_min_fgs_screen_off_low=1 
+    concurrency_max_fgs_screen_off_low=9 
+    concurrency_min_ej_screen_off_low=2 
+    concurrency_max_ej_screen_off_low=9 
+    concurrency_min_bg_screen_off_low=1 
+    concurrency_max_bg_screen_off_low=3 
+    concurrency_min_bguser_screen_off_low=0 
+    concurrency_max_bguser_screen_off_low=1 
+    concurrency_min_bguser_screen_off_low=0 
+    concurrency_max_bguser_screen_off_low=1 
+    
+    concurrency_max_total_screen_off_critical=6 
+    concurrency_min_top_screen_off_critical=4 
+    concurrency_max_top_screen_off_critical=6 
+    concurrency_min_fgs_screen_off_critical=1 
+    concurrency_max_fgs_screen_off_critical=6 
+    concurrency_min_ej_screen_off_critical=1 
+    concurrency_max_ej_screen_off_critical=6 
+    concurrency_min_bg_screen_off_critical=0 
+    concurrency_max_bg_screen_off_critical=1 
+    concurrency_min_bguser_screen_off_critical=0 
+    concurrency_max_bguser_screen_off_critical=1 
+    concurrency_min_bguser_screen_off_critical=0 
+    concurrency_max_bguser_screen_off_critical=1 
+    
+  Screen state: current ON  effective ON
+  Last screen ON: 2022-07-18 13:23:44.619 (-34m28s301ms)
+  Last screen OFF: 2022-07-18 13:23:34.404 (-34m38s516ms)
+  
+  Current work counts: Config={tot=11 mins={1=4, 2=1, 4=3, 8=2, 16=1, 32=0} maxs={1=11, 2=11, 4=11, 8=6, 16=2, 32=3}}, act res={1=0, 2=0, 4=0, 8=0, 16=0, 32=0}, Pending={}, Running={}, Staged={}, # unspecialized remaining=11
+  
+  mLastMemoryTrimLevel: 0
+  
+  Active Package stats:
+  
+  User Grace Period: {}
+  
+  Stats:
+    assignJobsToContexts: count=27840, total=32316.7ms, avg=1.161ms, max calls/s=7765 max dur/s=5061.2ms max time=133.1ms
+    refreshSystemState: count=7817, total=14280.4ms, avg=1.827ms, max calls/s=2 max dur/s=133.0ms max time=133.0ms
+
+PersistStats: FirstLoad: 14/9/6 LastSave: 9/5/2
+

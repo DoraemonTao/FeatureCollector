@@ -1,0 +1,145 @@
+    ELAPSED_WAKEUP #1: Alarm{4406bc0 type 2 origWhen 876291490 whenElapsed 876291490 android}
+      tag=*walarm*:WifiConnectivityManager Schedule Watchdog Timer
+      type=ELAPSED_WAKEUP origWhen=-55s177ms window=+15m0s0ms repeatInterval=0 count=0 flags=0x8
+      policyWhenElapsed: requester=-55s177ms app_standby=-5m50s122ms device_idle=-- battery_saver=--
+      whenElapsed=-55s177ms maxWhenElapsed=+14m4s823ms
+      listener=android.app.AlarmManager$ListenerWrapper@196959
+    ELAPSED #2: Alarm{4861271 type 3 origWhen 876325516 whenElapsed 876330519 com.tencent.mm}
+      tag=*alarm*:com.tencent.mm.TrafficStatsReceiver
+      type=ELAPSED origWhen=-21s151ms window=+3m45s0ms repeatInterval=300000 count=0 flags=0x8
+      policyWhenElapsed: requester=-16s148ms app_standby=-2m22s661ms device_idle=-- battery_saver=-2m22s661ms
+      whenElapsed=-16s148ms maxWhenElapsed=+3m28s852ms
+      operation=PendingIntent{cc9a2e4: PendingIntentRecord{1d4034d com.tencent.mm broadcastIntent}}
+    ELAPSED_WAKEUP #3: Alarm{dec09cd type 2 origWhen 876365572 whenElapsed 876365572 com.xunmeng.pinduoduo}
+      tag=*walarm*:ALARM_ACTION(2891)
+      type=ELAPSED_WAKEUP origWhen=+18s905ms window=0 exactAllowReason=compat repeatInterval=0 count=0 flags=0x1
+      policyWhenElapsed: requester=+18s905ms app_standby=-41s92ms device_idle=-- battery_saver=-41s92ms
+      whenElapsed=+18s905ms maxWhenElapsed=+18s905ms
+      operation=PendingIntent{a0ad282: PendingIntentRecord{54b6d93 com.xunmeng.pinduoduo broadcastIntent}}
+    ELAPSED_WAKEUP #4: Alarm{2c8d31d type 2 origWhen 876371514 whenElapsed 876371514 android}
+      tag=*walarm*:WifiConnectivityManager Schedule Periodic Scan Timer
+      type=ELAPSED_WAKEUP origWhen=+24s847ms window=+2m0s0ms repeatInterval=0 count=0 flags=0x8
+      policyWhenElapsed: requester=+24s847ms app_standby=-2m15s152ms device_idle=-- battery_saver=--
+      whenElapsed=+24s847ms maxWhenElapsed=+2m24s847ms
+      listener=android.app.AlarmManager$ListenerWrapper@8b12547
+    ELAPSED #5: Alarm{f32a1d0 type 3 origWhen 876399769 whenElapsed 876399769 android}
+      tag=*alarm*:TIME_TICK
+      type=ELAPSED origWhen=+53s102ms window=0 exactAllowReason=allow-listed repeatInterval=0 count=0 flags=0x9
+      policyWhenElapsed: requester=+53s102ms app_standby=-6s897ms device_idle=-- battery_saver=--
+      whenElapsed=+53s102ms maxWhenElapsed=+53s102ms
+      listener=com.android.server.alarm.AlarmManagerService$3@e87c313
+    ELAPSED_WAKEUP #6: Alarm{b68c6db type 2 origWhen 876408089 whenElapsed 876408089 com.xunmeng.pinduoduo}
+      tag=*walarm*:ALARM_ACTION(2891)
+      type=ELAPSED_WAKEUP origWhen=+1m1s422ms window=0 exactAllowReason=compat repeatInterval=0 count=0 flags=0x1
+      policyWhenElapsed: requester=+1m1s422ms app_standby=-41s103ms device_idle=-- battery_saver=-28m58s569ms
+      whenElapsed=+1m1s422ms maxWhenElapsed=+1m1s422ms
+      operation=PendingIntent{959578: PendingIntentRecord{60b6451 com.xunmeng.pinduoduo broadcastIntent}}
+    RTC_WAKEUP #7: Alarm{a2e8406 type 0 origWhen 1658152800000 whenElapsed 876459770 android}
+      tag=*walarm*:ScheduleConditionProvider.EVALUATE
+      type=RTC_WAKEUP origWhen=2022-07-18 22:00:00.000 window=0 exactAllowReason=allow-listed repeatInterval=0 count=0 flags=0x9
+      policyWhenElapsed: requester=+1m53s103ms app_standby=-5m50s122ms device_idle=-- battery_saver=--
+      whenElapsed=+1m53s103ms maxWhenElapsed=+1m53s103ms
+      operation=PendingIntent{4ac3ac7: PendingIntentRecord{662dc86 android broadcastIntent}}
+    ELAPSED_WAKEUP #8: Alarm{b1a7856 type 2 origWhen 876511133 whenElapsed 876511133 com.tencent.mm}
+      tag=*walarm*:ALARM_ACTION(10000)
+      type=ELAPSED_WAKEUP origWhen=+2m44s466ms window=0 exactAllowReason=compat repeatInterval=0 count=0 flags=0x9
+      policyWhenElapsed: requester=+2m44s466ms app_standby=-5m50s122ms device_idle=-- battery_saver=-7m2s455ms
+      whenElapsed=+2m44s466ms maxWhenElapsed=+2m44s466ms
+      operation=PendingIntent{373a0d7: PendingIntentRecord{872dc4 com.tencent.mm broadcastIntent}}
+    RTC #9: Alarm{31864ad type 1 origWhen 159000000 whenElapsed 876554035 com.tencent.qqmusic}
+      tag=*alarm*:com.tencent.qqmusic/.business.unicom.TrafficStatisticsService
+      type=RTC origWhen=1970-01-03 04:10:00.000 window=+7m30s0ms repeatInterval=600000 count=0 flags=0x0
+      policyWhenElapsed: requester=+3m27s368ms app_standby=-2m22s660ms device_idle=-- battery_saver=-2m22s661ms
+      whenElapsed=+3m27s368ms maxWhenElapsed=+10m57s368ms
+      operation=PendingIntent{4e2823d: PendingIntentRecord{4e3a32 com.tencent.qqmusic startService}}
+    ELAPSED #10: Alarm{cebb5e8 type 3 origWhen 876610943 whenElapsed 876610944 android}
+      tag=*alarm*:com.android.server.action.NETWORK_STATS_POLL
+      type=ELAPSED origWhen=+4m24s276ms window=+22m30s0ms repeatInterval=1800000 count=0 flags=0x8
+      policyWhenElapsed: requester=+4m24s277ms app_standby=-5m50s122ms device_idle=-- battery_saver=--
+      whenElapsed=+4m24s277ms maxWhenElapsed=+26m54s277ms
+      operation=PendingIntent{1f48598: PendingIntentRecord{16161f1 android broadcastIntent}}
+    ELAPSED #11: Alarm{addc3e2 type 3 origWhen 876611535 whenElapsed 876611535 android}
+      tag=*alarm*:*job.cleanup*
+      type=ELAPSED origWhen=+4m24s868ms window=+5m5s645ms repeatInterval=0 count=0 flags=0x8
+      policyWhenElapsed: requester=+4m24s868ms app_standby=-2m22s659ms device_idle=-- battery_saver=--
+      whenElapsed=+4m24s868ms maxWhenElapsed=+9m30s513ms
+      listener=android.app.AlarmManager$ListenerWrapper@2d46a7c
+    RTC_WAKEUP #12: Alarm{4e77373 type 0 origWhen 1658152965723 whenElapsed 876625493 com.tencent.mm}
+      tag=*walarm*:com.tencent.mm/.booter.MMReceivers$AlarmReceiver
+      type=RTC_WAKEUP origWhen=2022-07-18 22:02:45.723 window=+11m15s0ms repeatInterval=900000 count=0 flags=0x8
+      policyWhenElapsed: requester=+4m38s826ms app_standby=-5m50s122ms device_idle=-- battery_saver=-6m55s170ms
+      whenElapsed=+4m38s826ms maxWhenElapsed=+15m53s826ms
+      operation=PendingIntent{5170711: PendingIntentRecord{71b6076 com.tencent.mm broadcastIntent}}
+    ELAPSED #13: Alarm{cd2a548 type 3 origWhen 876732164 whenElapsed 876732164 android}
+      tag=*alarm*:LockSettingsPrimaryAuth.nonStrongBiometricIdleTimeoutForUser
+      type=ELAPSED origWhen=+6m25s497ms window=+1h0m0s0ms repeatInterval=0 count=0 flags=0x8
+      policyWhenElapsed: requester=+6m25s497ms app_standby=-5m50s122ms device_idle=-- battery_saver=--
+      whenElapsed=+6m25s497ms maxWhenElapsed=+1h6m25s497ms
+      listener=android.app.AlarmManager$ListenerWrapper@1bc7fe1
+    ELAPSED #14: Alarm{9ab6230 type 3 origWhen 876791235 whenElapsed 876791235 android}
+      tag=*alarm*:*job.delay*
+      type=ELAPSED origWhen=+7m24s568ms window=+8m39s174ms repeatInterval=0 count=0 flags=0x0
+      policyWhenElapsed: requester=+7m24s568ms app_standby=-4m7s664ms device_idle=-- battery_saver=--
+      whenElapsed=+7m24s568ms maxWhenElapsed=+16m3s742ms
+      listener=android.app.AlarmManager$ListenerWrapper@83528e3
+    ELAPSED_WAKEUP #15: Alarm{7dc4082 type 2 origWhen 877038089 whenElapsed 877038089 com.tencent.mm}
+      tag=*walarm*:ALARM_ACTION(10000)
+      type=ELAPSED_WAKEUP origWhen=+11m31s422ms window=0 exactAllowReason=compat repeatInterval=0 count=0 flags=0x9
+      policyWhenElapsed: requester=+11m31s422ms app_standby=-5m50s122ms device_idle=-- battery_saver=-18m28s572ms
+      whenElapsed=+11m31s422ms maxWhenElapsed=+11m31s422ms
+      operation=PendingIntent{afb4393: PendingIntentRecord{244bfd0 com.tencent.mm broadcastIntent}}
+    ELAPSED_WAKEUP #16: Alarm{cbc75c9 type 2 origWhen 877115800 whenElapsed 877115800 com.xunmeng.pinduoduo}
+      tag=*walarm*:ALARM_ACTION(2891)
+      type=ELAPSED_WAKEUP origWhen=+12m49s133ms window=0 exactAllowReason=compat repeatInterval=0 count=0 flags=0x1
+      policyWhenElapsed: requester=+12m49s133ms app_standby=-41s103ms device_idle=-- battery_saver=-1m45s706ms
+      whenElapsed=+12m49s133ms maxWhenElapsed=+12m49s133ms
+      operation=PendingIntent{a9794ce: PendingIntentRecord{7354fef com.xunmeng.pinduoduo broadcastIntent}}
+    ELAPSED_WAKEUP #17: Alarm{7039ea9 type 2 origWhen 877691235 whenElapsed 877691235 android}
+      tag=*walarm*:*job.deadline*
+      type=ELAPSED_WAKEUP origWhen=+22m24s568ms window=+19m54s173ms repeatInterval=0 count=0 flags=0x0
+      policyWhenElapsed: requester=+22m24s568ms app_standby=-4m7s662ms device_idle=-- battery_saver=--
+      whenElapsed=+22m24s568ms maxWhenElapsed=+42m18s741ms
+      listener=android.app.AlarmManager$ListenerWrapper@63a3c57
+    ELAPSED #18: Alarm{427d8f4 type 3 origWhen 881533525 whenElapsed 881533525 android}
+      tag=*alarm*:WifiHealthMonitor Schedule Daily Detection Timer
+      type=ELAPSED origWhen=+1h26m26s858ms window=+1h0m0s0ms repeatInterval=0 count=0 flags=0x8
+      policyWhenElapsed: requester=+1h26m26s858ms app_standby=-5m50s122ms device_idle=-- battery_saver=--
+      whenElapsed=+1h26m26s858ms maxWhenElapsed=+2h26m26s858ms
+      listener=android.app.AlarmManager$ListenerWrapper@3dd2574
+    RTC #19: Alarm{9c9e81d type 1 origWhen 1658160000000 whenElapsed 883659770 android}
+      tag=*alarm*:android.intent.action.DATE_CHANGED
+      type=RTC origWhen=2022-07-19 00:00:00.000 window=0 exactAllowReason=allow-listed repeatInterval=0 count=0 flags=0x1
+      policyWhenElapsed: requester=+2h1m53s103ms app_standby=-5m50s122ms device_idle=-- battery_saver=--
+      whenElapsed=+2h1m53s103ms maxWhenElapsed=+2h1m53s103ms
+      operation=PendingIntent{d803b12: PendingIntentRecord{384d2e3 android broadcastIntent}}
+    RTC_WAKEUP #20: Alarm{10a1d93 type 0 origWhen 1658160000419 whenElapsed 883660189 com.tencent.mobileqq}
+      tag=*walarm*:StepEventHandlerImpl.action_time_monitor
+      type=RTC_WAKEUP origWhen=2022-07-19 00:00:00.419 window=0 exactAllowReason=compat repeatInterval=0 count=0 flags=0x21
+      policyWhenElapsed: requester=+2h1m53s522ms app_standby=-5m50s122ms device_idle=-- battery_saver=-4h37m45s476ms
+      whenElapsed=+2h1m53s522ms maxWhenElapsed=+2h1m53s522ms
+      operation=PendingIntent{90391d0: PendingIntentRecord{f639060 com.tencent.mobileqq broadcastIntent}}
+      idle-options=Bundle[{android:broadcast.temporaryAppAllowlistReasonCode=302, android:broadcast.temporaryAppAllowlistDuration=10000, android:broadcast.temporaryAppAllowlistReason=, android:broadcast.temporaryAppAllowlistType=0}]
+    ELAPSED_WAKEUP #21: Alarm{4c2c90d type 2 origWhen 885600000 whenElapsed 885600000 com.android.providers.calendar}
+      tag=*walarm*:com.android.providers.calendar.intent.CalendarProvider2
+      type=ELAPSED_WAKEUP origWhen=+2h34m13s333ms window=+4h30m0s0ms repeatInterval=21600000 count=0 flags=0x0
+      policyWhenElapsed: requester=+2h34m13s333ms app_standby=-5m50s122ms device_idle=-- battery_saver=-3h25m27s74ms
+      whenElapsed=+2h34m13s333ms maxWhenElapsed=+7h4m13s333ms
+      operation=PendingIntent{a63c5ae: PendingIntentRecord{54a5f4f com.android.providers.calendar broadcastIntent}}
+    RTC #22: Alarm{da1e919 type 1 origWhen 1658188800000 whenElapsed 912459769 android}
+      tag=*alarm*:GraphicsStatsService
+      type=RTC origWhen=2022-07-19 08:00:00.000 window=0 exactAllowReason=allow-listed repeatInterval=0 count=0 flags=0x9
+      policyWhenElapsed: requester=+10h1m53s102ms app_standby=-5m50s122ms device_idle=-- battery_saver=--
+      whenElapsed=+10h1m53s102ms maxWhenElapsed=+10h1m53s102ms
+      listener=android.app.AlarmManager$ListenerWrapper@54c0dde
+    RTC_WAKEUP #23: Alarm{54fbbbf type 0 origWhen 1658218570051 whenElapsed 942229820 android}
+      tag=*walarm*:EventConditionProvider.EVALUATE
+      type=RTC_WAKEUP origWhen=2022-07-19 16:16:10.051 window=0 exactAllowReason=allow-listed repeatInterval=0 count=0 flags=0x9
+      policyWhenElapsed: requester=+18h18m3s153ms app_standby=-5m50s122ms device_idle=-- battery_saver=--
+      whenElapsed=+18h18m3s153ms maxWhenElapsed=+18h18m3s153ms
+      operation=PendingIntent{2e1528c: PendingIntentRecord{ee17336 android broadcastIntent}}
+    RTC_WAKEUP #24: Alarm{d9d2509 type 0 origWhen 1972887364507 whenElapsed 315611024276 com.android.statementservice}
+      tag=*walarm*:ACTION_FORCE_STOP_RESCHEDULE
+      type=RTC_WAKEUP origWhen=2032-07-08 16:16:04.507 window=0 exactAllowReason=compat repeatInterval=0 count=0 flags=0x1
+      policyWhenElapsed: requester=+3642d18h17m57s609ms app_standby=-5m50s122ms device_idle=-- battery_saver=-1d21h40m25s627ms
+      whenElapsed=+3642d18h17m57s609ms maxWhenElapsed=+3642d18h17m57s609ms
+      operation=PendingIntent{b27b30e: PendingIntentRecord{349b12f com.android.statementservice broadcastIntent}}

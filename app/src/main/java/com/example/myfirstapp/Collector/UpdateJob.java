@@ -6,6 +6,7 @@ import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class UpdateJob {
@@ -21,6 +22,7 @@ public class UpdateJob {
     }
 
     public void updateTmp(){
+
         Log.d(TAG, "Tmp Log is dump!");
 
         // dump alarm 需要参数
@@ -46,6 +48,7 @@ public class UpdateJob {
     }
 
     public void updateResult(){
-
+        SimpleDateFormat dateformat = new SimpleDateFormat("MM-dd HH:mm:ss.SSS");
+        String dateStr = dateformat.format(System.currentTimeMillis());
     }
 }
