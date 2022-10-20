@@ -2,6 +2,8 @@ package com.example.myfirstapp.Collector;
 
 import android.util.Log;
 
+import com.example.myfirstapp.util.TimeConvert;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileDescriptor;
@@ -84,6 +86,9 @@ public class UpdateJob {
 
     public void relaToAbsolute() throws IOException{
 
+        // TimeConvert util
+        TimeConvert timeConvert = new TimeConvert();
+
         // 读取文件
         BufferedReader in = new BufferedReader(new FileReader(this.tmp_log_path));
         BufferedWriter out = new BufferedWriter(new FileWriter(this.result_log_path,true));
@@ -97,7 +102,7 @@ public class UpdateJob {
         String line;
 
         // Current elapsed time:的正则匹配项
-        Pattern elapsedTimePattern = Pattern.compile("Current elapsed time://s+(//d+)");
+        Pattern elapsedTimePattern = Pattern.compile("Current elapsed time: (\\d+)");
         Matcher elapsedTimeMatch;
         String elapsedTime = null;
 
@@ -105,17 +110,18 @@ public class UpdateJob {
         String completedJobRegex = "Recently completed jobs:";
         Boolean completedJobFlag = false;
 
-        // job的相对时间
+        // RelaTime:的正则匹配项
         Pattern jobTimePattern = Pattern.compile("(\\+?-?\\d*m?\\d*s?\\d*ms)");
         Matcher jobTimeMatch;
+
+        // Time的定义
         String jobRelaTime;
         String jobAbsoTime = null;
-        long time;
 
+        long time;
+        long currentTime = 0;
         String sign;
 
-
-        // job的执行时间
 
 
 
@@ -125,7 +131,7 @@ public class UpdateJob {
             if(elapsedTimeMatch.find()){
                 // 获得对应的时间，可能会重置
                 elapsedTime = elapsedTimeMatch.group(1);
-
+                currentTime = Integer.valueOf(elapsedTime).intValue();
             }
 
             // 是否到达Recently completed jobs段
@@ -134,22 +140,24 @@ public class UpdateJob {
 
             // 获得相对时间
             if(completedJobFlag){
-                //匹配到新的job
-                jobTimeMatch = jobTimePattern.matcher(line);
-                if(jobTimeMatch.find()){
-                    jobRelaTime = jobTimeMatch.group(1);
-                    // 将相对时间转换为ElapsedTime类型
-                    try {
-                        sign = jobRelaTime.substring(0,1);
-                        jobRelaTime = jobRelaTime.substring(1);
-                        time = relaTimeFormat.parse(jobRelaTime).getTime();
 
-                        // 相减后转换成日期格式
-                        time = sign.equals("+") ? Integer.valueOf(elapsedTime).intValue() + time : Integer.valueOf(elapsedTime).intValue() - time;
-                        jobAbsoTime = dateformat.format(time);
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
+                // 匹配到新的job
+                jobTimeMatch = jobTimePattern.matcher(line);
+                // 使用while来获得所有相对时间，因为一段中含有多个
+                while(jobTimeMatch.find()){
+
+                    // TODO: Match all relaTime
+                    jobRelaTime = jobTimeMatch.group(1);
+
+                    // 将相对时间转换为ElapsedTime类型
+                    sign = jobRelaTime.substring(0,1);
+                    jobRelaTime = jobRelaTime.substring(1);
+                    time = timeConvert.relaToAbso(jobRelaTime);
+
+                    // 相减后转换成日期格式
+                    time = sign.equals("+") ? currentTime + time : currentTime - time;
+                    jobAbsoTime = dateformat.format(time);
+
                     // 将原来的相对时间转换成为绝对时间
                     line = line.replace(jobRelaTime,jobAbsoTime);
                 }

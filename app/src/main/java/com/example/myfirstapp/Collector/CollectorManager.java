@@ -54,7 +54,6 @@ public class CollectorManager implements DataCollector {
 
     // 重写运行方法
     private class TT extends TimerTask{
-
         @Override
         public void run() {
             try {
