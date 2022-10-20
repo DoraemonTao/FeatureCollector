@@ -49,10 +49,11 @@ public class Logger {
     public void logTmp() throws IOException{
         updateAlarm.updateTmp();
         updateJob.updateTmp();
+
     }
 
     // 更新最终文件
     public void updateResult() throws IOException{
-        updateAlarm.updateResult();
+        updateJob.relaToAbsolute();
     }
 }

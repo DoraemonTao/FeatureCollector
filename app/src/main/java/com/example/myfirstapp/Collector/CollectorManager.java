@@ -15,6 +15,10 @@ public class CollectorManager implements DataCollector {
 
     // 刷新间隔，暂定为1s
     private static final long DEFAULT_REFRESH_INTERVAL = 1000;
+
+    // job采集时间
+    private static final long JOB_DEFAULT_REFRESH_INTERVAL = 2*60*60*1000;
+
     private long refresh_interval ;
 
     // 定时作业配置
