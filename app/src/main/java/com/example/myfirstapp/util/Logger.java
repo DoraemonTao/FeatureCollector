@@ -53,7 +53,9 @@ public class Logger {
     }
 
     // 更新最终文件
-    public void updateResult() throws IOException{
-        updateJob.relaToAbsolute();
+    public void updateResult(long currentTime) throws IOException{
+        updateAlarm.updateResult();
+        updateJob.updateResult(currentTime);
+
     }
 }

@@ -57,8 +57,9 @@ public class CollectorManager implements DataCollector {
         @Override
         public void run() {
             try {
+                long currentTime = System.currentTimeMillis();
                 CollectorManager.this.logger.logTmp();
-                CollectorManager.this.logger.updateResult();
+                CollectorManager.this.logger.updateResult(currentTime);
             } catch (IOException e) {
                 e.printStackTrace();
             }

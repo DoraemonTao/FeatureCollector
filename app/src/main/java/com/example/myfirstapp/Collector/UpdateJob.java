@@ -56,35 +56,9 @@ public class UpdateJob {
         android.os.Debug.dumpService("jobscheduler",fd,null);
 
     }
+    
 
-    public void updateResult() throws IOException {
-
-
-        BufferedReader in = new BufferedReader(new FileReader(this.tmp_log_path));
-        BufferedWriter out = new BufferedWriter(new FileWriter(this.result_log_path,true));
-
-        String line;
-
-        // TODO: 将QuotaTracker的Current elapsed time 作为当前时间。将Recently completed jobs中的时间转换成当前时间
-
-        // 提取Current elapsed time
-
-
-
-        // Current elapsed time:的正则匹配项
-        Pattern elapsedTimePattern = Pattern.compile("Current elapsed time://s+(//d+)");
-        Matcher elapsedTimeMatch;
-
-        // 匹配Recently completed jobs的正则表达式
-        String jobsRegex = "Recently completed jobs:";
-
-
-
-
-
-    }
-
-    public void relaToAbsolute() throws IOException{
+    public void updateResult(long currentTime) throws IOException{
 
         // TimeConvert util
         TimeConvert timeConvert = new TimeConvert();
@@ -94,8 +68,7 @@ public class UpdateJob {
         BufferedWriter out = new BufferedWriter(new FileWriter(this.result_log_path,true));
 
         // date
-        SimpleDateFormat relaTimeFormat = new SimpleDateFormat("HH:mm:ss.SSS");
-        SimpleDateFormat dateformat = new SimpleDateFormat("MM-dd HH:mm:ss.SSS");
+        SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
         String dateStr = dateformat.format(System.currentTimeMillis());
 
 
@@ -111,29 +84,24 @@ public class UpdateJob {
         Boolean completedJobFlag = false;
 
         // RelaTime:的正则匹配项
-        Pattern jobTimePattern = Pattern.compile("(\\+?-?\\d*m?\\d*s?\\d*ms)");
+        Pattern jobTimePattern = Pattern.compile("((\\+|-)\\d*d?\\d*h?\\d*m?\\d*s?\\d+ms)");
         Matcher jobTimeMatch;
 
         // Time的定义
         String jobRelaTime;
         String jobAbsoTime = null;
+        String relaTime;
 
         long time;
-        long currentTime = 0;
         String sign;
+
+        // JobInfo
+        Boolean jobInfoFlag = false;
 
 
 
 
         while((line = in.readLine())!= null){
-            // TODO:找到第二个ElapsedTime类型
-            elapsedTimeMatch = elapsedTimePattern.matcher(line);
-            if(elapsedTimeMatch.find()){
-                // 获得对应的时间，可能会重置
-                elapsedTime = elapsedTimeMatch.group(1);
-                currentTime = Integer.valueOf(elapsedTime).intValue();
-            }
-
             // 是否到达Recently completed jobs段
             if(!completedJobFlag)
                 completedJobFlag = Pattern.matches(completedJobRegex,line);
@@ -141,18 +109,28 @@ public class UpdateJob {
             // 获得相对时间
             if(completedJobFlag){
 
+                // TODO: Skip the JobInfo
+                if(!jobInfoFlag)
+                    jobInfoFlag = Pattern.matches("\\s+JobInfo:",line);
+                else
+                    jobInfoFlag = !Pattern.matches("\\s+Required constraints.*",line);
+
+
                 // 匹配到新的job
                 jobTimeMatch = jobTimePattern.matcher(line);
                 // 使用while来获得所有相对时间，因为一段中含有多个
                 while(jobTimeMatch.find()){
 
-                    // TODO: Match all relaTime
+                    // 当line为jobInfo段时，跳过
+                    if(jobInfoFlag)
+                        break;
+
                     jobRelaTime = jobTimeMatch.group(1);
 
                     // 将相对时间转换为ElapsedTime类型
                     sign = jobRelaTime.substring(0,1);
-                    jobRelaTime = jobRelaTime.substring(1);
-                    time = timeConvert.relaToAbso(jobRelaTime);
+                    relaTime = jobRelaTime.substring(1);
+                    time = timeConvert.relaToAbso(relaTime);
 
                     // 相减后转换成日期格式
                     time = sign.equals("+") ? currentTime + time : currentTime - time;

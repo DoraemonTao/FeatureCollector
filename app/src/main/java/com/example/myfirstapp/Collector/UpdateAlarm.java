@@ -2,6 +2,8 @@ package com.example.myfirstapp.Collector;
 
 import android.util.Log;
 
+import com.example.myfirstapp.util.TimeConvert;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileDescriptor;
@@ -10,6 +12,9 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.Inet4Address;
+import java.net.PasswordAuthentication;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -62,6 +67,9 @@ public class UpdateAlarm {
 
         String line;
 
+        // TimeConv
+        TimeConvert timeConvert = new TimeConvert();
+
         // 匹配pending alarm的正则表达式
         String pendingPattern = ".*pending alarms:.*";
 
@@ -74,25 +82,66 @@ public class UpdateAlarm {
         // 匹配alarm唯一标识符的正则表达式
         String alarmIdRegex = "Alarm\\{(\\w+)\\s";
 
-        boolean pendingMatch = false;
-        boolean AlarmFlag = false;
-        boolean writeFlag = false;
-
         Pattern alarmIdPattern = Pattern.compile(alarmIdRegex);
         Matcher alarmIdMatch;
 
         // alarm唯一标识符
         String alarmId;
 
+        // elapsedTime有关的时间
+        long nowRTC = 0;
+        long nowElpased = 0;
+        long elpased = 0;
+
+        Pattern nowRTCPattern = Pattern.compile("nowRTC=(\\d+)");
+        Pattern nowElapsedPattern = Pattern.compile("nowELAPSED=(\\d+)");
+        Pattern elapsedPattern = Pattern.compile(" (\\d+) ");
+
+        Matcher nowRTCMatch;
+        Matcher nowElapsedMatch;
+        Matcher elapsedMatch;
+
+        boolean pendingFlag = false;
+        boolean AlarmFlag = false;
+        boolean writeFlag = false;
+        boolean nowRTCFlag = false;
+        boolean nowElapsedFlag = false;
+
+        String dateTime;
+
+
+
         while((line = in.readLine())!= null){
+            // 匹配nowRTC
+            if (!nowRTCFlag){
+                nowRTCMatch = nowRTCPattern.matcher(line);
+                if (nowRTCMatch.find()){
+                    nowRTC = Long.valueOf(nowRTCMatch.group(1)).longValue();
+                    nowRTCFlag = true;
+                }
+            }
+
+            // 匹配nowElapsed
+            if (!nowElapsedFlag){
+                nowElapsedMatch = nowElapsedPattern.matcher(line);
+                if(nowElapsedMatch.find()){
+                    nowElpased = Long.valueOf(nowElapsedMatch.group(1)).longValue();
+                    nowElapsedFlag = true;
+                }
+            }
+
+
             // 匹配pending段
-            if(!pendingMatch)
-                pendingMatch = Pattern.matches(pendingPattern,line);
+            if(!pendingFlag)
+                pendingFlag = Pattern.matches(pendingPattern,line);
+
             // 当匹配完pending alarm的信息后，跳出
             if(Pattern.matches(lazyPattern,line)){
                 break;
             }
-            if(pendingMatch){
+
+
+            if(pendingFlag){
                 AlarmFlag = Pattern.matches(alarmPattern,line);
                 // 匹配到新alarm时
                 if(AlarmFlag){
@@ -111,6 +160,16 @@ public class UpdateAlarm {
                     }
                 }
                 if (writeFlag){
+                    // 匹配elapsed
+
+                    elapsedMatch = elapsedPattern.matcher(line);
+                    while(elapsedMatch.find()){
+                        elpased = Long.valueOf(elapsedMatch.group(1)).longValue();
+                        dateTime = timeConvert.elapsedToDate(nowRTC,nowElpased,elpased);
+                        line = line.replace(elapsedMatch.group(1),dateTime);
+                    }
+
+
                     out.write(line);
                     out.newLine();
                     out.flush();

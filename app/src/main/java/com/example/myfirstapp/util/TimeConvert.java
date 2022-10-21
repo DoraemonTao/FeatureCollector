@@ -1,5 +1,6 @@
 package com.example.myfirstapp.util;
 
+import java.text.SimpleDateFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,12 +11,12 @@ public class TimeConvert {
     }
 
     // 相对时间转化成绝对时间，毫秒级
-    public int relaToAbso(String relaTime){
+    public long relaToAbso(String relaTime){
         // relaTime Format： [**d][**h][**s][**ms]
         // AbsoluteTime Format: *******
         // relaTime :Android导出的设置
 
-        int absoTime=0;
+        long absoTime=0;
 
         //DateMatcher
         Pattern dayTimePattern = Pattern.compile("(\\d+)d");
@@ -52,5 +53,14 @@ public class TimeConvert {
 
         return absoTime;
 
+    }
+
+    // 将elpased类型转换成date类型
+    public String elapsedToDate(long nowRTC,long nowElpased,long elapsedTime){
+        // date
+        SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        String dateStr = dateformat.format(nowRTC-nowElpased+elapsedTime);
+
+        return dateStr;
     }
 }
