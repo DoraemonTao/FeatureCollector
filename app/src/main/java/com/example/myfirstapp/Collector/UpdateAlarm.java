@@ -141,6 +141,8 @@ public class UpdateAlarm {
             }
 
 
+
+
             if(pendingFlag){
                 AlarmFlag = Pattern.matches(alarmPattern,line);
                 // 匹配到新alarm时

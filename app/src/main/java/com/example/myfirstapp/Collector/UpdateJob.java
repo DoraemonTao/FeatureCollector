@@ -21,7 +21,6 @@ import java.util.regex.Pattern;
 public class UpdateJob {
     public static String TAG = UpdateJob.class.getSimpleName();
 
-
     String tmp_log_path;
     String result_log_path;
 

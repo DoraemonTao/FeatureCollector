@@ -60,6 +60,8 @@ public class CollectorManager implements DataCollector {
                 long currentTime = System.currentTimeMillis();
                 CollectorManager.this.logger.logTmp();
                 CollectorManager.this.logger.updateResult(currentTime);
+                // TODO:合并alarm和job的临时文件
+                CollectorManager.this.logger.mergeResult();
             } catch (IOException e) {
                 e.printStackTrace();
             }
