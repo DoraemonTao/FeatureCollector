@@ -18,38 +18,46 @@ public class TimeConvert {
 
         long absoTime=0;
 
-        //DateMatcher
+        // DateMatcher
         Pattern dayTimePattern = Pattern.compile("(\\d+)d");
         Matcher dayTimeMatch;
 
 
-        //HourMatcher
+        // HourMatcher
         Pattern hourTimePattern = Pattern.compile("(\\d+)h");
         Matcher hourTimeMatch;
 
-        //SecondMatcher
+        // MinMatcher
+        Pattern minTimePattern = Pattern.compile("(\\d+)m");
+        Matcher minTimeMatch;
+
+        // SecondMatcher
         Pattern secTimePattern = Pattern.compile("(\\d+)s");
         Matcher secTimeMatch;
 
-        //MillMatcher
+        // MillMatcher
         Pattern millTimePattern = Pattern.compile("(\\d+)ms");
         Matcher millTimeMatch;
 
 
         dayTimeMatch = dayTimePattern.matcher(relaTime);
         hourTimeMatch = hourTimePattern.matcher(relaTime);
+        minTimeMatch = minTimePattern.matcher(relaTime);
         secTimeMatch = secTimePattern.matcher(relaTime);
         millTimeMatch = millTimePattern.matcher(relaTime);
 
         // calculate milli
         if (dayTimeMatch.find())
-            absoTime += Integer.valueOf(dayTimeMatch.group(1)).intValue() * 24 * 60 * 1000;
+            absoTime += Integer.valueOf(dayTimeMatch.group(1)).intValue() * 24 *60 * 60 * 1000;
         if (hourTimeMatch.find())
-            absoTime += Integer.valueOf(hourTimeMatch.group(1)).intValue()  * 60 * 1000;
+            absoTime += Integer.valueOf(hourTimeMatch.group(1)).intValue() * 60 * 60 * 1000;
+        if (minTimeMatch.find())
+            absoTime += Integer.valueOf(minTimeMatch.group(1)).intValue() * 60 * 1000;
         if (secTimeMatch.find())
             absoTime += Integer.valueOf(secTimeMatch.group(1)).intValue()  * 1000;
         if (millTimeMatch.find())
-            absoTime += Integer.valueOf(millTimeMatch.group(1)).intValue() ;
+            absoTime += Integer.valueOf(millTimeMatch.group(1)).intValue();
+
 
         return absoTime;
 
@@ -63,4 +71,20 @@ public class TimeConvert {
 
         return dateStr;
     }
+
+    // 将elapsed类型转换成RTC类型
+    public String elapsedToRTC(long nowRTC,long nowElpased,long elapsedTime){
+        String date = String.valueOf(nowRTC-nowElpased+elapsedTime);
+        return date;
+    }
+
+    // 将RTC类型转换成date类型
+    public String rtcToDate(long rtcTime) {
+        SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        String dateStr = dateformat.format(rtcTime);
+
+        return dateStr;
+    }
+
+
 }

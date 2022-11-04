@@ -67,6 +67,7 @@ public class UpdateAlarm {
 
         String line;
 
+        // TODO: Cancel Alarm清除
         // TimeConv
         TimeConvert timeConvert = new TimeConvert();
 
@@ -77,7 +78,7 @@ public class UpdateAlarm {
         String lazyPattern = ".*LazyAlarmStore stats:.*";
 
         // 匹配alarm信息的正则表达式
-        String alarmPattern = ".*[(RTC_WAKEUP)(RTC)(ELAPSED_REALTIME_WAKEUP)(ELAPSED_REALTIME)].*";
+        String alarmPattern = ".*((RTC_WAKEUP)|(RTC)|(ELAPSED_WAKEUP)|(ELAPSED)) #.*";
 
         // 匹配alarm唯一标识符的正则表达式
         String alarmIdRegex = "Alarm\\{(\\w+)\\s";
@@ -92,22 +93,30 @@ public class UpdateAlarm {
         long nowRTC = 0;
         long nowElpased = 0;
         long elpased = 0;
+        long time=0;
 
         Pattern nowRTCPattern = Pattern.compile("nowRTC=(\\d+)");
         Pattern nowElapsedPattern = Pattern.compile("nowELAPSED=(\\d+)");
-        Pattern elapsedPattern = Pattern.compile(" (\\d+) ");
+        Pattern elapsedPattern = Pattern.compile(" (\\d\\d\\d\\d+) ");
+        Pattern relaTimePattern = Pattern.compile("((\\+|-)\\d*d?\\d*h?\\d*m?\\d*s?\\d+ms)");
 
         Matcher nowRTCMatch;
         Matcher nowElapsedMatch;
         Matcher elapsedMatch;
+        Matcher relaTimeMatch;
 
         boolean pendingFlag = false;
         boolean AlarmFlag = false;
         boolean writeFlag = false;
         boolean nowRTCFlag = false;
         boolean nowElapsedFlag = false;
+        boolean RTCFlag = false;
+        boolean OrignFlag = true;
 
         String dateTime;
+        String signRelaTime;
+        String relaTime;
+        String sign;
 
 
 
@@ -147,6 +156,12 @@ public class UpdateAlarm {
                 AlarmFlag = Pattern.matches(alarmPattern,line);
                 // 匹配到新alarm时
                 if(AlarmFlag){
+                    // alarm is RTC or Elapsed
+                    if (Pattern.matches(".*((RTC_WAKEUP)|(RTC)) #.*",line))
+                        RTCFlag = true;
+                    else
+                        RTCFlag = false;
+                    // ID识别
                     alarmIdMatch = alarmIdPattern.matcher(line);
                     if(alarmIdMatch.find())
                     {
@@ -162,13 +177,39 @@ public class UpdateAlarm {
                     }
                 }
                 if (writeFlag){
-                    // 匹配elapsed
-
+                    // 匹配elapsedTime 和 RTCTime，并替换
                     elapsedMatch = elapsedPattern.matcher(line);
+                    OrignFlag = true;
                     while(elapsedMatch.find()){
                         elpased = Long.valueOf(elapsedMatch.group(1)).longValue();
-                        dateTime = timeConvert.elapsedToDate(nowRTC,nowElpased,elpased);
-                        line = line.replace(elapsedMatch.group(1),dateTime);
+                        if(RTCFlag & OrignFlag) {
+                            dateTime = String.valueOf(elpased);
+                            OrignFlag = false;
+                        }
+                        else {
+                            dateTime = timeConvert.elapsedToRTC(nowRTC, nowElpased, elpased);
+                        }
+                        line = line.replace(elapsedMatch.group(1), dateTime);
+                    }
+                    // 匹配到新的jobTime
+                    relaTimeMatch = relaTimePattern.matcher(line);
+                    // 使用while来获得所有相对时间，因为一段中含有多个
+                    while(relaTimeMatch.find()){
+                        // 当line为jobInfo段时，跳过
+                        signRelaTime = relaTimeMatch.group(1);
+
+                        // 将相对时间转换为ElapsedTime类型
+                        sign = signRelaTime.substring(0,1);
+                        relaTime = signRelaTime.substring(1);
+                        time = timeConvert.relaToAbso(relaTime);
+
+
+                        // 相减后转换成日期格式
+                        time = sign.equals("+") ? nowElpased + time : nowElpased - time;
+                        dateTime = timeConvert.elapsedToRTC(nowRTC, nowElpased, time);
+
+                        // 将原来的相对时间转换成为绝对时间
+                        line = line.replace(signRelaTime,dateTime);
                     }
 
 

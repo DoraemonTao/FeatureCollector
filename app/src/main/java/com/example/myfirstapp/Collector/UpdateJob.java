@@ -12,7 +12,6 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -23,10 +22,15 @@ public class UpdateJob {
 
     String tmp_log_path;
     String result_log_path;
+    // allWrite标识第一次写入时不区分唯一标识符
+    Boolean allWrite;
+
+    ArrayList<String> jobIdList = new ArrayList<>();
 
     public UpdateJob(String tmp_path,String result_path){
         this.tmp_log_path = tmp_path;
         this.result_log_path = result_path;
+        allWrite = true;
     }
 
     public void updateTmp(){
@@ -68,62 +72,78 @@ public class UpdateJob {
 
         // date
         SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-        String dateStr = dateformat.format(System.currentTimeMillis());
-
-
         String line;
-
-        // Current elapsed time:的正则匹配项
-        Pattern elapsedTimePattern = Pattern.compile("Current elapsed time: (\\d+)");
-        Matcher elapsedTimeMatch;
-        String elapsedTime = null;
-
-        // Recently completed jobs:的正则匹配项
-        String completedJobRegex = "Recently completed jobs:";
-        Boolean completedJobFlag = false;
 
         // RelaTime:的正则匹配项
         Pattern jobTimePattern = Pattern.compile("((\\+|-)\\d*d?\\d*h?\\d*m?\\d*s?\\d+ms)");
         Matcher jobTimeMatch;
 
+        // 匹配alarm唯一标识符的正则匹配项
+        String jobIdRegex = ":\\s(\\w+)\\s";
+        Pattern jobIdPattern = Pattern.compile(jobIdRegex);
+        Matcher jobIdMatch;
+
         // Time的定义
         String jobRelaTime;
         String jobAbsoTime = null;
         String relaTime;
-
-        long time;
         String sign;
+        String jobId;
+        long time;
 
-        // JobInfo
+        // Flag
+        Boolean completedJobFlag = false;
         Boolean jobInfoFlag = false;
-
-
-
+        Boolean jobFlag = false;
+        Boolean timeIdFlag = false;
+        Boolean writeFlag = false;
 
         while((line = in.readLine())!= null){
             // 是否到达Recently completed jobs段
-            if(!completedJobFlag)
-                completedJobFlag = Pattern.matches(completedJobRegex,line);
+            if(!completedJobFlag) {
+                completedJobFlag = Pattern.matches("Registered.*", line);
+                if(completedJobFlag)
+                    continue;
+            }
+
+            // 当匹配完pending alarm的信息后，跳出
+            if(Pattern.matches("ConnectivityController:",line)){
+                break;
+            }
 
             // 获得相对时间
             if(completedJobFlag){
+                //匹配到新job
+                jobFlag = Pattern.matches(".*JOB #.*",line);
 
-                // TODO: Skip the JobInfo
+                if(jobFlag){
+                    jobIdMatch = jobIdPattern.matcher(line);
+                    if(jobIdMatch.find())
+                    {
+                        jobId = jobIdMatch.group(1);
+                        // 当发现是从未发现的jobId时
+                        if(!jobIdList.contains(jobId)) {
+                            writeFlag = true;
+                            jobIdList.add(jobId);
+                        }
+                        else {
+                            writeFlag = false;
+                        }
+                    }
+                }
+
+                // Skip the JobInfo
                 if(!jobInfoFlag)
                     jobInfoFlag = Pattern.matches("\\s+JobInfo:",line);
                 else
                     jobInfoFlag = !Pattern.matches("\\s+Required constraints.*",line);
-
-
-                // 匹配到新的job
+                // 匹配到新的jobTime
                 jobTimeMatch = jobTimePattern.matcher(line);
                 // 使用while来获得所有相对时间，因为一段中含有多个
                 while(jobTimeMatch.find()){
-
                     // 当line为jobInfo段时，跳过
                     if(jobInfoFlag)
                         break;
-
                     jobRelaTime = jobTimeMatch.group(1);
 
                     // 将相对时间转换为ElapsedTime类型
@@ -131,20 +151,29 @@ public class UpdateJob {
                     relaTime = jobRelaTime.substring(1);
                     time = timeConvert.relaToAbso(relaTime);
 
+
                     // 相减后转换成日期格式
                     time = sign.equals("+") ? currentTime + time : currentTime - time;
-                    jobAbsoTime = dateformat.format(time);
+                    jobAbsoTime = String.valueOf(time);
 
                     // 将原来的相对时间转换成为绝对时间
                     line = line.replace(jobRelaTime,jobAbsoTime);
                 }
-
-                // 将结果写入文件中
-                out.write(line);
-                out.newLine();
-                out.flush();
+                if(writeFlag) {
+                    // 将结果写入文件中
+                    out.write(line);
+                    out.newLine();
+                    out.flush();
+                }
             }
         }
         out.close();
+    }
+
+    // 时间的模糊匹配
+    private boolean fuzzyMatch(ArrayList<Long> timeIdList,Long time){
+        if (time>timeIdList.get(0)-500 & time<timeIdList.get(0)+500)
+            return true;
+        return false;
     }
 }
